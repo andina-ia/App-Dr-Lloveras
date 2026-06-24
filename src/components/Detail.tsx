@@ -62,7 +62,7 @@ function VideoPlayer({ section }: { section: Section }) {
   useEffect(() => { setPlaying(false); }, [section.id]);
 
   if (section.videoUrl) {
-    const proxyUrl = `/api/media?url=${encodeURIComponent(section.videoUrl)}`;
+    const src = `/api/media?url=${encodeURIComponent(section.videoUrl)}`;
     const toggle = () => {
       const v = videoRef.current; if (!v) return;
       if (v.paused) { v.play(); setPlaying(true); } else { v.pause(); setPlaying(false); }
@@ -70,9 +70,9 @@ function VideoPlayer({ section }: { section: Section }) {
     const expand = (e: React.MouseEvent) => {
       e.stopPropagation();
       const v = videoRef.current; if (!v) return;
-      const box = v.parentElement as HTMLElement & { requestFullscreen?: () => void; webkitRequestFullscreen?: () => void; };
-      if (box.requestFullscreen) box.requestFullscreen();
-      else if (box.webkitRequestFullscreen) box.webkitRequestFullscreen();
+      if (v.requestFullscreen) v.requestFullscreen();
+      else if ((v as HTMLVideoElement & { webkitEnterFullscreen?: () => void }).webkitEnterFullscreen)
+        (v as HTMLVideoElement & { webkitEnterFullscreen?: () => void }).webkitEnterFullscreen!();
       if (v.paused) { v.play(); setPlaying(true); }
     };
     return (
@@ -80,7 +80,7 @@ function VideoPlayer({ section }: { section: Section }) {
         <div className="video real" onClick={toggle}>
           <video ref={videoRef} className="video-el" playsInline preload="metadata"
             onEnded={() => setPlaying(false)} onPause={() => setPlaying(false)} onPlay={() => setPlaying(true)}>
-            <source src={proxyUrl} type="video/mp4" />
+            <source src={src} type="video/mp4" />
           </video>
           <button className="video-expand" aria-label="Pantalla completa" onClick={expand}>
             <Icons.expand width={20} height={20} />

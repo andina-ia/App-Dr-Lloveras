@@ -523,3 +523,32 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
 
 /* Espaciado entre secciones */
 .cover-clinic { font-size: calc(11px*var(--scale)); letter-spacing: .18em; }
+
+/* ── DETAIL MOBILE: ocultar sidebar ───────────────── */
+.detail-sidebar { display: none; }
+
+/* Detail mobile: volver al layout original de una columna */
+.detail {
+  display: block !important;
+  max-width: 100% !important;
+}
+.detail-top {
+  grid-column: unset !important;
+  padding: 54px 14px 10px !important;
+  box-shadow: 0 1px 0 rgba(19,41,75,.06) !important;
+}
+.detail-body {
+  padding: 4px 22px 36px !important;
+  max-width: 100% !important;
+}
+
+/* Desktop: mostrar sidebar y grid */
+@media (min-width: 768px) {
+  .detail-sidebar { display: flex !important; }
+  .detail {
+    display: grid !important;
+    max-width: 1100px !important;
+  }
+  .detail-top { padding: 20px 40px 14px !important; }
+  .detail-body { padding: 32px 40px 60px !important; max-width: 680px !important; }
+}
