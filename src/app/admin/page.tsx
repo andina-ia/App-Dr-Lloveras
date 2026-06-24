@@ -64,8 +64,9 @@ function SectionUploader({
       } else {
         setStatus(s => ({ ...s, [type]: "✗ Error al guardar" }));
       }
-    } catch {
-      setStatus(s => ({ ...s, [type]: "✗ Error al subir" }));
+    } catch (e: unknown) {
+      const msg = e instanceof Error ? e.message : String(e);
+      setStatus(s => ({ ...s, [type]: `✗ ${msg}` }));
     } finally {
       setLoading(l => ({ ...l, [type]: false }));
     }
