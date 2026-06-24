@@ -1,9 +1,9 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
 import { Section, contact } from "@/lib/content";
-import { Icons, AvatarMark } from "./Icons";
+import { Icons, AvatarMark, SectionIcon } from "./Icons";
 
-// ── Lens Simulator (sección "lente") ──────────────────────────────────
+// ── Lens Simulator ─────────────────────────────────
 const LENS_TYPES = [
   { key: "catarata", label: "Con catarata", img: "/scenes/scene-catarata.png",
     badge: "Así ves hoy",
@@ -55,14 +55,14 @@ function LensSimulator({ section }: { section: Section }) {
   );
 }
 
-// ── Video player ──────────────────────────────────────────────────────
+// ── Video Player ────────────────────────────────────
 function VideoPlayer({ section }: { section: Section }) {
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
   useEffect(() => { setPlaying(false); }, [section.id]);
 
   if (section.videoUrl) {
+    const proxyUrl = `/api/media?url=${encodeURIComponent(section.videoUrl)}`;
     const toggle = () => {
       const v = videoRef.current; if (!v) return;
       if (v.paused) { v.play(); setPlaying(true); } else { v.pause(); setPlaying(false); }
@@ -70,11 +70,7 @@ function VideoPlayer({ section }: { section: Section }) {
     const expand = (e: React.MouseEvent) => {
       e.stopPropagation();
       const v = videoRef.current; if (!v) return;
-      const box = v.parentElement as HTMLElement & {
-        requestFullscreen?: () => void;
-        webkitRequestFullscreen?: () => void;
-        webkitEnterFullscreen?: () => void;
-      };
+      const box = v.parentElement as HTMLElement & { requestFullscreen?: () => void; webkitRequestFullscreen?: () => void; };
       if (box.requestFullscreen) box.requestFullscreen();
       else if (box.webkitRequestFullscreen) box.webkitRequestFullscreen();
       if (v.paused) { v.play(); setPlaying(true); }
@@ -84,9 +80,9 @@ function VideoPlayer({ section }: { section: Section }) {
         <div className="video real" onClick={toggle}>
           <video ref={videoRef} className="video-el" playsInline preload="metadata"
             onEnded={() => setPlaying(false)} onPause={() => setPlaying(false)} onPlay={() => setPlaying(true)}>
-            {section.videoUrl && <source src={`/api/media?url=${encodeURIComponent(section.videoUrl)}`} type="video/mp4" />}
+            <source src={proxyUrl} type="video/mp4" />
           </video>
-          <button className="video-expand" aria-label="Ver en pantalla completa" onClick={expand}>
+          <button className="video-expand" aria-label="Pantalla completa" onClick={expand}>
             <Icons.expand width={20} height={20} />
           </button>
           {!playing && (
@@ -99,7 +95,7 @@ function VideoPlayer({ section }: { section: Section }) {
           {!playing && (
             <div className="video-foot">
               <span className="video-foot-name">Dr. Marcelo Lloveras</span>
-              <span className="video-foot-hint">Tocá para ampliar</span>
+              <span className="video-foot-hint">Tocá para reproducir</span>
             </div>
           )}
         </div>
@@ -108,37 +104,29 @@ function VideoPlayer({ section }: { section: Section }) {
     );
   }
 
-  // Placeholder
   return (
     <div className="video-wrap">
       <div className={"video" + (playing ? " is-playing" : "")} onClick={() => setPlaying(p => !p)}>
         <div className="video-glow" />
         <div className="video-center">
           {!playing && <AvatarMark size={86} />}
-          <button className="play-btn" aria-label={playing ? "Pausar" : "Reproducir"}>
-            {playing ? (
-              <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
-                <rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>
-              </svg>
-            ) : (
-              <Icons.play width={32} height={32} style={{ marginLeft: 4 }} />
-            )}
+          <button className="play-btn" aria-label="Reproducir">
+            {playing
+              ? <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+              : <Icons.play width={32} height={32} style={{ marginLeft: 4 }} />}
           </button>
         </div>
         {playing && <div className="video-playing-tag">Video próximamente</div>}
-        <div className="video-foot">
-          <span className="video-foot-name">Dr. Marcelo Lloveras</span>
-        </div>
+        <div className="video-foot"><span className="video-foot-name">Dr. Marcelo Lloveras</span></div>
       </div>
       <p className="video-caption">{section.videoIntro}</p>
     </div>
   );
 }
 
-// ── PDF Card ──────────────────────────────────────────────────────────
+// ── PDF Card ────────────────────────────────────────
 function PdfCard({ section }: { section: Section }) {
   const [done, setDone] = useState(false);
-
   if (section.pdfUrl) {
     const proxyUrl = `/api/media?url=${encodeURIComponent(section.pdfUrl)}`;
     return (
@@ -165,28 +153,25 @@ function PdfCard({ section }: { section: Section }) {
   );
 }
 
-// ── FAQ Accordion ─────────────────────────────────────────────────────
+// ── FAQ ─────────────────────────────────────────────
 function Faq({ items }: { items: { q: string; a: string }[] }) {
   const [open, setOpen] = useState(-1);
   return (
     <div className="faq">
-      {items.map((it, i) => {
-        const isOpen = open === i;
-        return (
-          <div className={"faq-item" + (isOpen ? " open" : "")} key={i}>
-            <button className="faq-q" onClick={() => setOpen(isOpen ? -1 : i)}>
-              <span>{it.q}</span>
-              <span className="faq-icon"><Icons.plus width={22} height={22} /></span>
-            </button>
-            <div className="faq-a-wrap"><div className="faq-a">{it.a}</div></div>
-          </div>
-        );
-      })}
+      {items.map((it, i) => (
+        <div className={"faq-item" + (open === i ? " open" : "")} key={i}>
+          <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)}>
+            <span>{it.q}</span>
+            <span className="faq-icon"><Icons.plus width={22} height={22} /></span>
+          </button>
+          <div className="faq-a-wrap"><div className="faq-a">{it.a}</div></div>
+        </div>
+      ))}
     </div>
   );
 }
 
-// ── Summary ───────────────────────────────────────────────────────────
+// ── Summary ─────────────────────────────────────────
 function Summary({ section }: { section: Section }) {
   const numbered = section.summaryKind === "steps";
   return (
@@ -206,7 +191,7 @@ function Summary({ section }: { section: Section }) {
   );
 }
 
-// ── Contact ───────────────────────────────────────────────────────────
+// ── Contact ─────────────────────────────────────────
 function ContactCard() {
   const wa = (process.env.NEXT_PUBLIC_WHATSAPP || contact.phone).replace(/\D/g, "");
   return (
@@ -223,16 +208,46 @@ function ContactCard() {
   );
 }
 
-// ── Detail Screen ─────────────────────────────────────────────────────
-export function Detail({ section, onBack }: { section: Section; onBack: () => void }) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => { if (ref.current) ref.current.scrollTop = 0; }, [section.id]);
+// ── Sidebar (desktop) ───────────────────────────────
+function Sidebar({ sections, current, onSelect }: { sections: Section[]; current: Section; onSelect: (s: Section) => void }) {
+  return (
+    <aside className="detail-sidebar">
+      <div className="detail-sidebar-title">Secciones</div>
+      {sections.map(s => (
+        <button
+          key={s.id}
+          className={"detail-sidebar-item" + (s.id === current.id ? " active" : "")}
+          onClick={() => onSelect(s)}
+        >
+          <span className="sbi-ico"><SectionIcon id={s.id} /></span>
+          {s.title}
+        </button>
+      ))}
+    </aside>
+  );
+}
+
+// ── Detail Screen ────────────────────────────────────
+export function Detail({ section, sections, onBack, onSelect }: {
+  section: Section;
+  sections: Section[];
+  onBack: () => void;
+  onSelect: (s: Section) => void;
+}) {
+  const bodyRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (bodyRef.current) bodyRef.current.scrollTop = 0;
+    window.scrollTo(0, 0);
+  }, [section.id]);
 
   return (
-    <div className="screen detail fade-enter" ref={ref}>
+    <div className="screen detail fade-enter" ref={bodyRef}>
       <header className="detail-top">
         <button className="back-btn" onClick={onBack}><Icons.back width={24} height={24} /><span>Inicio</span></button>
       </header>
+
+      <Sidebar sections={sections} current={section} onSelect={onSelect} />
+
       <div className="detail-body">
         <h1 className="detail-title">{section.detailTitle}</h1>
         {section.id === "lente" ? <LensSimulator section={section} /> : <VideoPlayer section={section} />}

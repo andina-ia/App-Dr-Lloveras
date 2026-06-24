@@ -200,3 +200,255 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
 .video:-webkit-full-screen { aspect-ratio: auto; width: 100%; height: 100%; border-radius: 0; background: #000; }
 .cover-logo { width: 84px; height: 84px; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 10px 24px rgba(0,0,0,.30)); }
 .brand-logo { width: 46px; height: 46px; flex: none; display: flex; align-items: center; justify-content: center; }
+
+/* ═══════════════════════════════════════════════════════
+   DESKTOP LAYOUT  ≥ 768px
+   ═══════════════════════════════════════════════════════ */
+
+@media (min-width: 768px) {
+
+  /* ── Root shell ─────────────────────────────────── */
+  body { font-size: 16px; }
+
+  /* Centrar y limitar el ancho de toda la app */
+  .screen {
+    min-height: 100svh;
+  }
+
+  /* ── COVER ──────────────────────────────────────── */
+  .cover {
+    flex-direction: row;
+    align-items: stretch;
+    padding: 0;
+    min-height: 100svh;
+  }
+  .cover-bg { display: none; }
+
+  /* Panel izquierdo (fondo navy) */
+  .cover-left-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 48%;
+    min-width: 420px;
+    max-width: 560px;
+    padding: 64px 56px;
+    background: linear-gradient(165deg,#16315A 0%,#13294B 50%,#0C1B33 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover-left-panel::before {
+    content: "";
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    top: -140px; right: -140px;
+    background: radial-gradient(circle, rgba(91,123,170,.35), transparent 65%);
+  }
+  .cover-left-panel::after {
+    content: "";
+    position: absolute;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    bottom: -120px; left: -100px;
+    background: radial-gradient(circle, rgba(46,86,140,.4), transparent 68%);
+  }
+
+  /* Panel derecho (fondo paper) */
+  .cover-right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 64px 56px;
+    background: var(--paper);
+  }
+
+  /* Mover elementos al panel correcto */
+  .cover-top { position: relative; z-index: 1; }
+  .cover-mid { position: relative; z-index: 1; text-align: left; align-items: flex-start; flex: 1; justify-content: center; }
+  .cover-bottom { position: relative; z-index: 1; width: 100%; }
+  .cover-enter { max-width: 320px; }
+  .cover-name { font-size: 42px; }
+  .cover-welcome { max-width: 40ch; }
+
+  /* Secciones del panel derecho */
+  .cover-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  .cover-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: transform .14s ease, box-shadow .14s ease;
+    border: 1.5px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .cover-feature:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .cover-feature-ico {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--navy);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    flex: none;
+    padding: 10px;
+  }
+  .cover-feature-txt { display: flex; flex-direction: column; gap: 2px; }
+  .cover-feature-title { font-family: 'Nunito'; font-weight: 800; font-size: 15px; color: var(--navy); }
+  .cover-feature-sub { font-size: 13px; color: var(--muted); }
+
+  /* ── HOME ───────────────────────────────────────── */
+  .home {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px 60px;
+  }
+  .home-head {
+    border-radius: 0 0 24px 24px;
+    padding: 48px 40px 36px;
+    margin: 0 -40px 32px;
+  }
+  .home-greet { font-size: 38px; }
+  .home-intro { max-width: 50ch; }
+  .opt-grid.stacked {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .opt-card.stacked {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 24px;
+    border-radius: 20px;
+    min-height: 180px;
+    gap: 0;
+  }
+  .opt-card.stacked .opt-num {
+    margin-bottom: 16px;
+  }
+  .opt-card.stacked .opt-ico {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    padding: 14px;
+  }
+  .opt-card.stacked .opt-txt { flex: 1; }
+  .opt-card.stacked .opt-title { font-size: 20px; margin-bottom: 6px; }
+  .opt-card.stacked .opt-sub { font-size: 14px; }
+  .opt-card.stacked .opt-arrow { 
+    display: none; 
+  }
+  .opt-grid.stacked .opt-card.stacked::after {
+    content: "→";
+    font-size: 20px;
+    color: var(--navy-300);
+    margin-top: 16px;
+    font-family: 'Nunito';
+    font-weight: 800;
+  }
+
+  /* ── DETAIL ─────────────────────────────────────── */
+  .detail {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto 1fr;
+    min-height: 100svh;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .detail-top {
+    grid-column: 1 / -1;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 20px 40px 14px;
+    background: var(--paper);
+    box-shadow: 0 1px 0 rgba(19,41,75,.06);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .detail-sidebar {
+    padding: 32px 0 32px 40px;
+    border-right: 1px solid var(--line);
+    position: sticky;
+    top: 66px;
+    height: calc(100svh - 66px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .detail-sidebar-title {
+    font-family: 'Nunito';
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    padding: 0 16px;
+  }
+  .detail-sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Nunito';
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--muted);
+    transition: background .12s, color .12s;
+    border: none;
+    background: transparent;
+    text-align: left;
+    width: 100%;
+  }
+  .detail-sidebar-item:hover { background: var(--accent-soft); color: var(--navy); }
+  .detail-sidebar-item.active { background: var(--navy); color: #fff; }
+  .detail-sidebar-item .sbi-ico {
+    width: 32px; height: 32px;
+    border-radius: 9px;
+    padding: 7px;
+    background: rgba(255,255,255,.15);
+    flex: none;
+  }
+  .detail-sidebar-item:not(.active) .sbi-ico {
+    background: var(--accent-soft);
+    color: var(--navy);
+  }
+  .detail-body {
+    padding: 32px 40px 60px;
+    max-width: 680px;
+  }
+  .detail-title { font-size: 32px; }
+  .video { aspect-ratio: 16/9; }
+
+  /* ── ACCESSIBILITY BAR ──────────────────────────── */
+  .a11y-bar {
+    bottom: 24px;
+    right: 24px;
+  }
+}
+
+/* ── Extra large ≥ 1280px ─────────────────────────── */
+@media (min-width: 1280px) {
+  .home { max-width: 1200px; }
+  .opt-grid.stacked { grid-template-columns: repeat(4, 1fr); }
+  .opt-card.stacked { min-height: 200px; }
+  .detail { max-width: 1200px; grid-template-columns: 280px 1fr; }
+  .detail-body { max-width: 720px; }
+}
