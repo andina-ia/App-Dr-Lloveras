@@ -84,7 +84,7 @@ function VideoPlayer({ section }: { section: Section }) {
         <div className="video real" onClick={toggle}>
           <video ref={videoRef} className="video-el" playsInline preload="metadata"
             onEnded={() => setPlaying(false)} onPause={() => setPlaying(false)} onPlay={() => setPlaying(true)}>
-            {section.videoUrl && <source src={section.videoUrl} type={section.videoUrl.includes('.mov') ? 'video/quicktime' : 'video/mp4'} />}
+            {section.videoUrl && <source src={`/api/media?url=${encodeURIComponent(section.videoUrl)}`} type="video/mp4" />}
           </video>
           <button className="video-expand" aria-label="Ver en pantalla completa" onClick={expand}>
             <Icons.expand width={20} height={20} />
@@ -140,8 +140,9 @@ function PdfCard({ section }: { section: Section }) {
   const [done, setDone] = useState(false);
 
   if (section.pdfUrl) {
+    const proxyUrl = `/api/media?url=${encodeURIComponent(section.pdfUrl)}`;
     return (
-      <a className={"pdf-card" + (done ? " done" : "")} href={section.pdfUrl}
+      <a className={"pdf-card" + (done ? " done" : "")} href={proxyUrl}
         target="_blank" rel="noreferrer" onClick={() => setDone(true)} style={{ textDecoration: "none" }}>
         <span className="pdf-ico"><Icons.pdf width={26} height={26} /></span>
         <span className="pdf-text">
