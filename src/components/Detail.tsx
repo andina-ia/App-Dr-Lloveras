@@ -63,23 +63,56 @@ function VideoPlayer({ section }: { section: Section }) {
 
   if (section.videoUrl) {
     const src = `/api/media?url=${encodeURIComponent(section.videoUrl)}`;
+
     const toggle = () => {
       const v = videoRef.current; if (!v) return;
       if (v.paused) { v.play(); setPlaying(true); } else { v.pause(); setPlaying(false); }
     };
+
     const expand = (e: React.MouseEvent) => {
       e.stopPropagation();
       const v = videoRef.current; if (!v) return;
-      if (v.requestFullscreen) v.requestFullscreen();
-      else if ((v as HTMLVideoElement & { webkitEnterFullscreen?: () => void }).webkitEnterFullscreen)
-        (v as HTMLVideoElement & { webkitEnterFullscreen?: () => void }).webkitEnterFullscreen!();
-      if (v.paused) { v.play(); setPlaying(true); }
+      // iOS Safari: fullscreen on video element directly
+      type IOSVideo = HTMLVideoElement & { webkitEnterFullscreen?: () => void; webkitSupportsFullscreen?: boolean };
+      const iosV = v as IOSVideo;
+      if (iosV.webkitEnterFullscreen) {
+        if (v.paused) v.play();
+        iosV.webkitEnterFullscreen();
+      } else if (v.requestFullscreen) {
+        if (v.paused) v.play();
+        v.requestFullscreen();
+      }
     };
+
+    const onFullscreenEnd = () => {
+      const v = videoRef.current; if (!v) return;
+      if (!v.paused) v.pause();
+      setPlaying(false);
+    };
+
+    // Attach webkit fullscreen exit listener via useEffect
+    useEffect(() => {
+      const v = videoRef.current; if (!v) return;
+      v.addEventListener("webkitendfullscreen", onFullscreenEnd);
+      v.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement) onFullscreenEnd(); });
+      return () => {
+        v.removeEventListener("webkitendfullscreen", onFullscreenEnd);
+      };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [section.id]);
+
     return (
       <div className="video-wrap">
         <div className="video real" onClick={toggle}>
-          <video ref={videoRef} className="video-el" playsInline preload="metadata"
-            onEnded={() => setPlaying(false)} onPause={() => setPlaying(false)} onPlay={() => setPlaying(true)}>
+          <video
+            ref={videoRef}
+            className="video-el"
+            playsInline
+            preload="metadata"
+            onEnded={() => setPlaying(false)}
+            onPause={() => setPlaying(false)}
+            onPlay={() => setPlaying(true)}
+          >
             <source src={src} type="video/mp4" />
           </video>
           <button className="video-expand" aria-label="Pantalla completa" onClick={expand}>
@@ -104,6 +137,7 @@ function VideoPlayer({ section }: { section: Section }) {
     );
   }
 
+  // Placeholder sin video
   return (
     <div className="video-wrap">
       <div className={"video" + (playing ? " is-playing" : "")} onClick={() => setPlaying(p => !p)}>
