@@ -452,3 +452,35 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
   .detail { max-width: 1200px; grid-template-columns: 280px 1fr; }
   .detail-body { max-width: 720px; }
 }
+
+/* ── MOBILE: ocultar elementos solo-desktop ───────── */
+.cover-right-panel { display: none; }
+.cover-left-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: unset;
+  max-width: unset;
+  padding: 64px 30px 38px;
+  background: none;
+}
+.cover-left-panel::before,
+.cover-left-panel::after { display: none; }
+
+/* Mostrar solo en desktop */
+@media (min-width: 768px) {
+  .cover-right-panel { display: flex; }
+  .cover-left-panel {
+    width: 48%;
+    min-width: 420px;
+    max-width: 560px;
+    padding: 64px 56px;
+    background: linear-gradient(165deg,#16315A 0%,#13294B 50%,#0C1B33 100%);
+  }
+  .cover-left-panel::before,
+  .cover-left-panel::after { display: block; }
+}
+
+/* Fix logo cortado */
+.cover-top { padding-top: 8px; }
+.cover-logo { overflow: visible; }
