@@ -58,9 +58,18 @@ function LensSimulator({ section }: { section: Section }) {
 // ── Video player ──────────────────────────────────────────────────────
 function VideoPlayer({ section }: { section: Section }) {
   const [playing, setPlaying] = useState(false);
+  const [signedUrl, setSignedUrl] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => { setPlaying(false); }, [section.id]);
+  useEffect(() => { setPlaying(false); setSignedUrl(null); }, [section.id]);
+
+  useEffect(() => {
+    if (!section.videoUrl) return;
+    fetch(`/api/blob-url?url=${encodeURIComponent(section.videoUrl)}`)
+      .then(r => r.json())
+      .then(d => { if (d.url) setSignedUrl(d.url); })
+      .catch(() => setSignedUrl(section.videoUrl!));
+  }, [section.videoUrl]);
 
   if (section.videoUrl) {
     const toggle = () => {
@@ -84,7 +93,7 @@ function VideoPlayer({ section }: { section: Section }) {
         <div className="video real" onClick={toggle}>
           <video ref={videoRef} className="video-el" playsInline preload="metadata"
             onEnded={() => setPlaying(false)} onPause={() => setPlaying(false)} onPlay={() => setPlaying(true)}>
-            <source src={section.videoUrl} type={section.videoUrl?.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
+            {signedUrl && <source src={signedUrl} type={signedUrl.includes('.mov') ? 'video/quicktime' : 'video/mp4'} />}
           </video>
           <button className="video-expand" aria-label="Ver en pantalla completa" onClick={expand}>
             <Icons.expand width={20} height={20} />
@@ -138,14 +147,24 @@ function VideoPlayer({ section }: { section: Section }) {
 // ── PDF Card ──────────────────────────────────────────────────────────
 function PdfCard({ section }: { section: Section }) {
   const [done, setDone] = useState(false);
+  const [signedUrl, setSignedUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!section.pdfUrl) return;
+    fetch(`/api/blob-url?url=${encodeURIComponent(section.pdfUrl)}`)
+      .then(r => r.json())
+      .then(d => { if (d.url) setSignedUrl(d.url); })
+      .catch(() => setSignedUrl(section.pdfUrl!));
+  }, [section.pdfUrl]);
+
   if (section.pdfUrl) {
     return (
-      <a className={"pdf-card" + (done ? " done" : "")} href={section.pdfUrl}
-        target="_blank" rel="noreferrer" onClick={() => setDone(true)} style={{ textDecoration: "none" }}>
+      <a className={"pdf-card" + (done ? " done" : "")} href={signedUrl || "#"}
+        target="_blank" rel="noreferrer" onClick={() => setDone(true)} style={{ textDecoration: "none", pointerEvents: signedUrl ? "auto" : "none", opacity: signedUrl ? 1 : 0.6 }}>
         <span className="pdf-ico"><Icons.pdf width={26} height={26} /></span>
         <span className="pdf-text">
           <span className="pdf-name">{section.pdfName}</span>
-          <span className="pdf-meta">{done ? "Descargado · listo para leer" : section.pdfMeta}</span>
+          <span className="pdf-meta">{done ? "Descargado · listo para leer" : signedUrl ? section.pdfMeta : "Cargando…"}</span>
         </span>
         <span className="pdf-action">{done ? <Icons.check width={24} height={24} /> : <Icons.download width={24} height={24} />}</span>
       </a>

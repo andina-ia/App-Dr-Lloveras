@@ -18,14 +18,13 @@ export async function POST(request: Request): Promise<NextResponse> {
 
   try {
     const blob = await put(path, file, {
-      access: "public",
+      access: "private",
       allowOverwrite: true,
     });
-    return NextResponse.json({ url: blob.url });
+    // Guardamos la URL interna del blob (pathname)
+    return NextResponse.json({ url: blob.url, pathname: blob.pathname });
   } catch (error) {
     console.error("Blob upload error:", error);
     return NextResponse.json({ error: (error as Error).message }, { status: 500 });
   }
 }
-
-export const config = { api: { bodyParser: false } };
