@@ -1,7 +1,6 @@
 "use client";
-import { Section } from "@/lib/content";
-import { brand } from "@/lib/content";
-import { Icons, SectionIcon } from "./Icons";
+import { Section, brand } from "@/lib/content";
+import { Icons, EyeLogo, SectionIcon } from "./Icons";
 
 type Layout = "stacked" | "list" | "mosaic";
 
@@ -62,7 +61,7 @@ export function Home({
           <Icons.back width={22} height={22} /><span>Portada</span>
         </button>
         <div className="brand-row">
-          <div className="brand-logo">ML</div>
+          <div className="brand-logo"><EyeLogo size={42} /></div>
           <div className="brand-meta">
             <div className="brand-name">{brand.name}</div>
             <div className="brand-spec">{brand.specialty}</div>

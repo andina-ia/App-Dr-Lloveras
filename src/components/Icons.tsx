@@ -64,6 +64,11 @@ export const Icons = {
       <path d="M12 6v12M6 12h12"/>
     </svg>
   ),
+  expand: (p: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M8 3H4a1 1 0 0 0-1 1v4M16 3h4a1 1 0 0 1 1 1v4M8 21H4a1 1 0 0 1-1-1v-4M16 21h4a1 1 0 0 0 1-1v-4"/>
+    </svg>
+  ),
 };
 
 export function AvatarMark({ size = 92 }: { size?: number }) {
@@ -73,6 +78,26 @@ export function AvatarMark({ size = 92 }: { size?: number }) {
       <circle cx="46" cy="46" r="35" fill="rgba(255,255,255,0.10)"/>
       <circle cx="46" cy="38" r="13" fill="rgba(255,255,255,0.92)"/>
       <path d="M24 70a22 18 0 0 1 44 0Z" fill="rgba(255,255,255,0.92)"/>
+    </svg>
+  );
+}
+
+export function EyeLogo({ size = 76 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 96 96" fill="none" aria-label="Logo">
+      <defs>
+        <linearGradient id="eyeIris" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#5FE0DA"/>
+          <stop offset="1" stopColor="#1FA8C4"/>
+        </linearGradient>
+      </defs>
+      <circle cx="48" cy="48" r="46" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.30)" strokeWidth="1.5"/>
+      <path d="M14 48 C30 26, 66 26, 82 48 C66 70, 30 70, 14 48 Z" fill="rgba(255,255,255,0.97)"/>
+      <circle cx="48" cy="48" r="17" fill="url(#eyeIris)"/>
+      <circle cx="48" cy="48" r="17" fill="none" stroke="#0E5AA7" strokeWidth="2" opacity="0.5"/>
+      <circle cx="48" cy="48" r="7.5" fill="#0B2547"/>
+      <circle cx="42.5" cy="42.5" r="3.2" fill="#fff"/>
+      <path d="M14 48 C30 26, 66 26, 82 48 C66 70, 30 70, 14 48 Z" fill="none" stroke="#15406E" strokeWidth="2.4" strokeLinejoin="round" opacity="0.18"/>
     </svg>
   );
 }
