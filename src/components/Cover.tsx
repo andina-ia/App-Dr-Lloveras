@@ -27,6 +27,9 @@ export function Cover({ onEnter }: { onEnter: () => void }) {
           Ingresar <Icons.chevron width={24} height={24} />
         </button>
         <div className="cover-foot">Tocá para comenzar</div>
+        <a href="/admin" style={{ fontSize: "calc(11px * var(--scale))", color: "rgba(255,255,255,0.25)", textDecoration: "none", marginTop: 4 }}>
+          Admin
+        </a>
       </div>
     </div>
   );
