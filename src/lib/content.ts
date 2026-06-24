@@ -27,7 +27,7 @@ export type Contact = { label: string; sub: string; note: string; phone: string 
 
 export const brand: Brand = {
   name: "Dr. Marcelo Lloveras",
-  specialty: "Oftalmología · Cirugía de cataratas",
+  specialty: "Oftalmólogo",
   greeting: "Hola, bienvenido/a",
   intro: "Estás en buenas manos. Mirá los videos y descargá las indicaciones cuando las necesites.",
 };
