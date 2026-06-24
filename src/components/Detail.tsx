@@ -62,7 +62,7 @@ function VideoPlayer({ section }: { section: Section }) {
   useEffect(() => { setPlaying(false); }, [section.id]);
 
   if (section.videoUrl) {
-    const src = `/api/media?url=${encodeURIComponent(section.videoUrl)}`;
+    const src = section.videoUrl; // Ya es URL firmada generada server-side
 
     const toggle = () => {
       const v = videoRef.current; if (!v) return;
@@ -162,7 +162,7 @@ function VideoPlayer({ section }: { section: Section }) {
 function PdfCard({ section }: { section: Section }) {
   const [done, setDone] = useState(false);
   if (section.pdfUrl) {
-    const proxyUrl = `/api/media?url=${encodeURIComponent(section.pdfUrl)}`;
+    const proxyUrl = section.pdfUrl; // Ya es URL firmada generada server-side
     return (
       <a className={"pdf-card" + (done ? " done" : "")} href={proxyUrl}
         target="_blank" rel="noreferrer" onClick={() => setDone(true)} style={{ textDecoration: "none" }}>
