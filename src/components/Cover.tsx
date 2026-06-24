@@ -14,7 +14,7 @@ export function Cover({ onEnter }: { onEnter: () => void }) {
       {/* ── LEFT PANEL (navy) — desktop only layout ── */}
       <div className="cover-left-panel">
         <div className="cover-top">
-          <div className="cover-logo"><EyeLogo size={76} /></div>
+          <div className="cover-logo"><EyeLogo size={72} /></div>
           <span className="cover-clinic">Oftalmología</span>
         </div>
         <div className="cover-mid">

@@ -484,3 +484,42 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
 /* Fix logo cortado */
 .cover-top { padding-top: 8px; }
 .cover-logo { overflow: visible; }
+
+/* ── COVER MOBILE REFINEMENTS ──────────────────────── */
+
+/* Logo sin fondo gris */
+.cover-logo {
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Más espacio entre secciones */
+.cover-top { gap: 8px; margin-bottom: 8px; }
+.cover-mid { gap: 0; padding: 20px 0; }
+.cover-name { font-size: calc(30px*var(--scale)); margin-bottom: 6px; }
+.cover-spec { margin-top: 4px; margin-bottom: 0; }
+.cover-welcome { margin-top: 16px; font-size: calc(15px*var(--scale)); text-align: center; }
+.cover-eyebrow { margin-bottom: 16px; }
+
+/* Botón más compacto y elegante */
+.cover-enter {
+  width: auto !important;
+  padding: 15px 40px !important;
+  font-size: calc(17px*var(--scale)) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.22) !important;
+  gap: 8px;
+}
+.cover-bottom {
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 8px;
+}
+.cover-foot { font-size: calc(12px*var(--scale)); }
+
+/* Espaciado entre secciones */
+.cover-clinic { font-size: calc(11px*var(--scale)); letter-spacing: .18em; }
