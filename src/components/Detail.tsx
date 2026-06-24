@@ -84,7 +84,7 @@ function VideoPlayer({ section }: { section: Section }) {
         <div className="video real" onClick={toggle}>
           <video ref={videoRef} className="video-el" playsInline preload="metadata"
             onEnded={() => setPlaying(false)} onPause={() => setPlaying(false)} onPlay={() => setPlaying(true)}>
-            <source src={section.videoUrl} type="video/mp4" />
+            <source src={section.videoUrl} type={section.videoUrl?.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} />
           </video>
           <button className="video-expand" aria-label="Ver en pantalla completa" onClick={expand}>
             <Icons.expand width={20} height={20} />

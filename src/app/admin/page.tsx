@@ -109,7 +109,7 @@ function SectionUploader({
           </div>
         )}
         <div style={styles.uploadRow}>
-          <input ref={videoRef} type="file" accept="video/mp4,video/quicktime" style={styles.fileInput} />
+          <input ref={videoRef} type="file" accept="video/mp4,video/quicktime,video/mov,.mov,.mp4" style={styles.fileInput} />
           <button
             style={{ ...styles.uploadBtn, ...(loading.video ? styles.uploadBtnDisabled : {}) }}
             disabled={loading.video}

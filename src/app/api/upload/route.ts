@@ -9,8 +9,8 @@ export async function POST(request: Request): Promise<NextResponse> {
       request,
       onBeforeGenerateToken: async (pathname) => {
         return {
-          allowedContentTypes: ["video/mp4", "video/quicktime", "application/pdf"],
-          maximumSizeInBytes: 500 * 1024 * 1024, // 500MB
+          allowedContentTypes: ["video/mp4", "video/quicktime", "video/mov", "application/pdf"],
+          maximumSizeInBytes: 500 * 1024 * 1024,
         };
       },
       onUploadCompleted: async ({ blob }) => {
