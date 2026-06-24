@@ -1,6 +1,6 @@
 "use client";
-import { Icons, EyeLogo, SectionIcon } from "./Icons";
-import { brand, sections } from "@/lib/content";
+import { Icons, EyeLogo } from "./Icons";
+import { brand } from "@/lib/content";
 
 export function Cover({ onEnter }: { onEnter: () => void }) {
   return (
@@ -37,28 +37,8 @@ export function Cover({ onEnter }: { onEnter: () => void }) {
         </div>
       </div>
 
-      {/* ── RIGHT PANEL (paper) — desktop only ── */}
-      <div className="cover-right-panel">
-        <div style={{ marginBottom: 28 }}>
-          <div style={{ fontFamily: "'Nunito'", fontWeight: 800, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase" as const, color: "var(--muted)", marginBottom: 16 }}>
-            ¿Qué encontrás acá?
-          </div>
-          <div className="cover-features">
-            {sections.map(s => (
-              <div key={s.id} className="cover-feature" onClick={onEnter}>
-                <span className="cover-feature-ico"><SectionIcon id={s.id} /></span>
-                <span className="cover-feature-txt">
-                  <span className="cover-feature-title">{s.title}</span>
-                  <span className="cover-feature-sub">{s.sub}</span>
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div style={{ fontSize: 12, color: "var(--muted)" }}>
-          Tu salud visual, acompañada en cada paso.
-        </div>
-      </div>
+      {/* ── RIGHT PANEL — desktop only, removed as redundant ── */}
+
     </div>
   );
 }

@@ -280,7 +280,9 @@ export function Detail({ section, sections, onBack, onSelect }: {
         <button className="back-btn" onClick={onBack}><Icons.back width={24} height={24} /><span>Inicio</span></button>
       </header>
 
-      <Sidebar sections={sections} current={section} onSelect={onSelect} />
+      <div className="sidebar-desktop-only">
+        <Sidebar sections={sections} current={section} onSelect={onSelect} />
+      </div>
 
       <div className="detail-body">
         <h1 className="detail-title">{section.detailTitle}</h1>

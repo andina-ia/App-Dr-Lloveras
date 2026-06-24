@@ -552,3 +552,9 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
   .detail-top { padding: 20px 40px 14px !important; }
   .detail-body { padding: 32px 40px 60px !important; max-width: 680px !important; }
 }
+
+/* Sidebar solo en desktop */
+.sidebar-desktop-only { display: none; }
+@media (min-width: 768px) {
+  .sidebar-desktop-only { display: contents; }
+}
