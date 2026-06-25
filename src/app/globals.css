@@ -215,17 +215,20 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
     flex-direction: row;
     padding: 0;
     min-height: 100svh;
+    justify-content: center;
+    align-items: center;
   }
   .cover-bg { display: none; }
+  .cover-right-panel { display: none !important; }
 
   .cover-left-panel {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 46%;
-    min-width: 400px;
-    max-width: 520px;
-    padding: 60px 56px;
+    width: 100%;
+    max-width: 560px;
+    min-height: 100svh;
+    padding: 60px 72px;
     background: linear-gradient(165deg,#16315A 0%,#13294B 50%,#0C1B33 100%);
     position: relative;
     overflow: hidden;
@@ -233,48 +236,12 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
   .cover-left-panel::before {
     content: "";
     position: absolute;
-    width: 380px; height: 380px;
+    width: 420px; height: 420px;
     border-radius: 50%;
-    top: -130px; right: -130px;
+    top: -140px; right: -140px;
     background: radial-gradient(circle, rgba(91,123,170,.3), transparent 65%);
     pointer-events: none;
   }
-
-  .cover-right-panel {
-    display: flex;
-    flex: 1;
-    background: var(--paper);
-    align-items: center;
-    justify-content: center;
-    padding: 48px;
-  }
-  .cover-right-inner { width: 100%; max-width: 400px; }
-  .cover-right-label {
-    font-family: 'Nunito'; font-weight: 800;
-    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 20px;
-  }
-  .cover-section-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
-  .cover-section-item {
-    display: flex; align-items: center; gap: 14px;
-    background: var(--card); border-radius: 18px;
-    padding: 16px 18px; border: 1px solid var(--line);
-    box-shadow: var(--shadow-sm); cursor: pointer;
-    transition: transform .12s ease, box-shadow .12s ease;
-  }
-  .cover-section-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-  .csi-num {
-    width: 26px; height: 26px; border-radius: 8px;
-    background: var(--accent-soft); color: var(--navy);
-    font-family: 'Nunito'; font-weight: 800; font-size: 13px;
-    display: flex; align-items: center; justify-content: center; flex: none;
-  }
-  .csi-ico { width: 40px; height: 40px; border-radius: 12px; background: var(--navy); color: #fff; padding: 10px; flex: none; }
-  .csi-txt { flex: 1; min-width: 0; }
-  .csi-title { font-family: 'Nunito'; font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 2px; }
-  .csi-sub { font-size: 12px; color: var(--muted); }
-  .csi-arrow { color: var(--navy-300); flex: none; }
-  .cover-right-foot { font-size: 12px; color: var(--muted); text-align: center; }
 
   /* cover left text — no welcome text on desktop */
   .cover-welcome { display: none; }
