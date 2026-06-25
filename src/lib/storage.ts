@@ -9,10 +9,8 @@ export type SectionContent = {
 export type ContentMap = Partial<Record<SectionId, SectionContent>>;
 
 const CONTENT_FILENAME = "lloveras-content.json";
-let memoryCache: ContentMap | null = null;
 
 export async function getContent(): Promise<ContentMap> {
-  if (memoryCache) return memoryCache;
   try {
     const token = process.env.BLOB_READ_WRITE_TOKEN;
     if (!token) return {};
@@ -21,11 +19,9 @@ export async function getContent(): Promise<ContentMap> {
     if (blobs.length > 0) {
       const res = await fetch(blobs[0].url, {
         headers: { Authorization: `Bearer ${token}` },
+        cache: "no-store",
       });
-      if (res.ok) {
-        memoryCache = await res.json();
-        return memoryCache!;
-      }
+      if (res.ok) return await res.json();
     }
   } catch (e) {
     console.error("getContent:", e);
@@ -34,7 +30,6 @@ export async function getContent(): Promise<ContentMap> {
 }
 
 export async function saveContent(map: ContentMap): Promise<void> {
-  memoryCache = map;
   const token = process.env.BLOB_READ_WRITE_TOKEN;
   if (!token) throw new Error("BLOB_READ_WRITE_TOKEN no configurado");
   const { put } = await import("@vercel/blob");
