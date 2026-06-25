@@ -388,7 +388,7 @@ function Summary({ section }: { section: Section }) {
 
 // ── Contact ─────────────────────────────────────────
 function ContactCard() {
-  const wa = (process.env.NEXT_PUBLIC_WHATSAPP || contact.phone).replace(/\D/g, "");
+  const wa = "5492645068102";
   return (
     <div className="contact">
       <p className="contact-note">{contact.note}</p>

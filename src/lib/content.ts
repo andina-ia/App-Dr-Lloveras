@@ -36,7 +36,7 @@ export const contact: Contact = {
   label: "Escribir al consultorio",
   sub: "WhatsApp · Lun a Vie, 9 a 18 h",
   note: "Ante cualquier molestia o duda, escribinos. Te respondemos a la brevedad.",
-  phone: process.env.NEXT_PUBLIC_WHATSAPP || "5491100000000",
+  phone: "2645068102",
 };
 
 export const sections: Section[] = [
