@@ -246,19 +246,42 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
   .cover-enter { width: auto; padding: 16px 48px; font-size: 18px; border-radius: 999px; }
 
   /* ── HOME ── */
-  .home { max-width: 1100px; margin: 0 auto; padding: 0 40px 60px; }
-  .home-head { border-radius: 0 0 24px 24px; padding: 48px 40px 36px; margin: 0 -40px 32px; }
-  .home-greet { font-size: 36px; }
-  .home-intro { max-width: 48ch; }
-  .opt-grid.stacked { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .home { max-width: 1100px; margin: 0 auto; padding: 0 48px 72px; }
+  .home-head { border-radius: 0 0 28px 28px; padding: 52px 48px 40px; margin: 0 -48px 40px; }
+  .home-greet { font-size: 40px; }
+  .home-intro { max-width: 50ch; font-size: 17px; }
+  .opt-grid.stacked { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
   .opt-card.stacked {
-    flex-direction: column; align-items: flex-start;
-    padding: 24px 22px; min-height: 170px; gap: 0; border-radius: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 24px 24px;
+    min-height: 220px;
+    gap: 0;
+    border-radius: 22px;
+    position: relative;
   }
-  .opt-card.stacked .opt-num { margin-bottom: 14px; }
-  .opt-card.stacked .opt-ico { width: 52px; height: 52px; border-radius: 15px; padding: 13px; margin-bottom: 12px; }
-  .opt-card.stacked .opt-title { font-size: 19px; }
-  .opt-card.stacked .opt-sub { font-size: 13.5px; }
+  .opt-card.stacked .opt-num {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin-bottom: 0;
+  }
+  .opt-card.stacked .opt-ico {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    padding: 14px;
+    margin-bottom: 16px;
+    flex: none;
+  }
+  .opt-card.stacked .opt-txt {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    justify-content: flex-end;
+  }
+  .opt-card.stacked .opt-title { font-size: 18px; line-height: 1.2; }
+  .opt-card.stacked .opt-sub { font-size: 13px; line-height: 1.4; }
   .opt-card.stacked .opt-arrow { display: none; }
 
   /* ── DETAIL ── */
