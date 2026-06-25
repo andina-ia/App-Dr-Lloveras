@@ -56,7 +56,7 @@ export const sections: Section[] = [
     faq: [
       { q: "¿Cuánto dura la cirugía?", a: "La cirugía en sí suele durar entre 15 y 30 minutos. El día completo en el centro es de unas pocas horas." },
       { q: "¿Tengo que quedarme internado/a?", a: "No. Es una cirugía ambulatoria: el mismo día volvés a tu casa, siempre acompañado/a." },
-      { q: "¿Voy a sentir dolor?", a: "No. Se realiza con anestesia local en gotas. Podés sentir presión leve, pero no dolor." },
+      { q: "¿Voy a sentir dolor?", a: "No. Se realiza con anestesia local en gotas y sedación. Podés sentir presión leve, pero no dolor." },
     ],
   },
   {
