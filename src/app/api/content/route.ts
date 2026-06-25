@@ -18,14 +18,26 @@ export async function POST(request: Request) {
   if (auth !== adminPwd) {
     return NextResponse.json({ error: "No autorizado" }, { status: 401 });
   }
+
   const incoming: ContentMap = await request.json();
+
+  // Leer el estado actual FRESCO desde Blob (sin cache)
   const existing = await getContent();
+
+  // Log para debug
+  console.log("EXISTING:", JSON.stringify(existing));
+  console.log("INCOMING:", JSON.stringify(incoming));
+
+  // Merge: solo actualizar las secciones que vienen en el request
   const merged: ContentMap = { ...existing };
   for (const [id, data] of Object.entries(incoming)) {
-    merged[id as keyof ContentMap] = { ...(existing[id as keyof ContentMap] || {}), ...data };
+    const existingSection = existing[id as keyof ContentMap] || {};
+    merged[id as keyof ContentMap] = { ...existingSection, ...data };
   }
+
+  console.log("MERGED:", JSON.stringify(merged));
+
   await saveContent(merged);
-  // Revalidar la página principal para que tome el nuevo contenido inmediatamente
   revalidatePath("/");
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, merged });
 }
