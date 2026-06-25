@@ -264,9 +264,11 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
 
   /* ── HOME ── */
   .home { max-width: 1100px; margin: 0 auto; padding: 0 48px 72px; }
-  .home-head { border-radius: 0 0 28px 28px; padding: 52px 48px 40px; margin: 0 -48px 40px; }
-  .home-greet { font-size: 40px; }
-  .home-intro { max-width: 50ch; font-size: 17px; }
+  .home-head { border-radius: 0 0 28px 28px; padding: 52px 48px 44px; margin: 0 -48px 40px; }
+  .home-greet { font-size: 42px; margin-bottom: 10px; }
+  .home-intro { max-width: 52ch; font-size: 17px; color: rgba(255,255,255,.85); }
+  .home-back { margin-bottom: 24px; }
+  .brand-row { margin-bottom: 32px; }
 
   /* Desktop cards — 4 columnas, layout vertical */
   .opt-grid.stacked { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
