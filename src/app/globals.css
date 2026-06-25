@@ -64,9 +64,26 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
 .opt-grid.mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
 .opt-card { appearance: none; border: 0; cursor: pointer; text-align: left; width: 100%; background: var(--card); color: var(--ink); font-family: inherit; transition: transform .12s ease, box-shadow .12s ease; }
 .opt-card:active { transform: scale(.985); }
-.opt-card.stacked { display: grid; grid-template-columns: auto auto 1fr auto; align-items: center; gap: 16px; padding: 20px 18px; border-radius: var(--r); box-shadow: var(--shadow); min-height: 96px; }
-.opt-card.stacked .opt-num { width: 30px; height: 30px; border-radius: 9px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Nunito'; font-weight: 800; font-size: calc(15px*var(--scale)); }
-.opt-card.stacked .opt-ico { width: 52px; height: 52px; border-radius: 15px; flex: none; background: var(--navy); color: #fff; padding: 13px; }
+/* CARD MOBILE */
+.opt-card.stacked {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 16px;
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  min-height: 88px;
+  text-align: left;
+}
+.card-top { display: flex; align-items: center; gap: 12px; }
+.card-num { width: 28px; height: 28px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Nunito'; font-weight: 800; font-size: calc(14px*var(--scale)); flex: none; }
+.card-ico { width: 48px; height: 48px; border-radius: 14px; background: var(--navy); color: #fff; padding: 12px; flex: none; }
+.card-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.card-title { font-weight: 800; font-size: calc(18px*var(--scale)); line-height: 1.2; letter-spacing: -.01em; font-family: 'Nunito'; }
+.card-sub { font-size: calc(13.5px*var(--scale)); color: var(--muted); line-height: 1.35; }
+.card-arrow { color: var(--navy-300); display: flex; flex: none; }
 .opt-arrow { color: var(--navy-300); display: flex; }
 .opt-txt { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .opt-title { font-weight: 800; font-size: calc(19px*var(--scale)); line-height: 1.2; letter-spacing: -.01em; }
@@ -250,39 +267,49 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
   .home-head { border-radius: 0 0 28px 28px; padding: 52px 48px 40px; margin: 0 -48px 40px; }
   .home-greet { font-size: 40px; }
   .home-intro { max-width: 50ch; font-size: 17px; }
+
+  /* Desktop cards — 4 columnas, layout vertical */
   .opt-grid.stacked { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
   .opt-card.stacked {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 28px 24px 24px;
+    padding: 28px 24px;
     min-height: 220px;
     gap: 0;
     border-radius: 22px;
-    position: relative;
+    grid-template-columns: unset;
+    grid-template-rows: unset;
   }
-  .opt-card.stacked .opt-num {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    margin-bottom: 0;
+  .opt-card.stacked .card-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
   }
-  .opt-card.stacked .opt-ico {
-    width: 56px; height: 56px;
-    border-radius: 16px;
-    padding: 14px;
-    margin-bottom: 16px;
-    flex: none;
+  .opt-card.stacked .card-num {
+    order: 2;
+    width: 28px; height: 28px;
   }
-  .opt-card.stacked .opt-txt {
+  .opt-card.stacked .card-ico {
+    order: 1;
+    width: 52px; height: 52px;
+    border-radius: 15px;
+    padding: 13px;
+  }
+  .opt-card.stacked .card-body {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    flex: 1;
     justify-content: flex-end;
+    gap: 6px;
+    width: 100%;
   }
-  .opt-card.stacked .opt-title { font-size: 18px; line-height: 1.2; }
-  .opt-card.stacked .opt-sub { font-size: 13px; line-height: 1.4; }
-  .opt-card.stacked .opt-arrow { display: none; }
+  .opt-card.stacked .card-title { font-size: 18px; line-height: 1.2; }
+  .opt-card.stacked .card-sub { font-size: 13px; line-height: 1.4; }
+  .opt-card.stacked .card-arrow { display: none; }
 
   /* ── DETAIL ── */
   .detail { display: grid; grid-template-columns: 260px 1fr; grid-template-rows: auto 1fr; max-width: 1100px; margin: 0 auto; min-height: 100svh; }
