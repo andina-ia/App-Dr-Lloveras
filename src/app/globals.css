@@ -575,3 +575,84 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
 .sim-trigger-txt { text-align: left; flex: 1; }
 .sim-trigger-label { font-size: 14px; font-weight: 700; color: var(--navy); display: block; margin-bottom: 2px; }
 .sim-trigger-sub { font-size: 12px; color: var(--muted); }
+
+/* ── COVER DESKTOP RIGHT PANEL ──────────────────────── */
+@media (min-width: 768px) {
+  .cover-right-panel {
+    flex: 1;
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 48px 48px 40px;
+  }
+  .cover-right-inner {
+    width: 100%;
+    max-width: 420px;
+  }
+  .cover-right-label {
+    font-family: 'Nunito';
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .cover-section-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .cover-section-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--card);
+    border-radius: 18px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease;
+    border: 1px solid var(--line);
+  }
+  .cover-section-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .csi-num {
+    width: 26px; height: 26px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    color: var(--navy);
+    font-family: 'Nunito';
+    font-weight: 800;
+    font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    flex: none;
+  }
+  .csi-ico {
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    background: var(--navy);
+    color: #fff;
+    padding: 10px;
+    flex: none;
+  }
+  .csi-txt { flex: 1; min-width: 0; }
+  .csi-title {
+    font-family: 'Nunito';
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .csi-sub {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .csi-arrow { color: var(--navy-300); flex: none; }
+  .cover-right-foot {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+  }
+}
