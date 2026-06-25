@@ -31,16 +31,16 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
 .cover-orb { position: absolute; border-radius: 50%; filter: blur(2px); }
 .cover-orb.a { width: 300px; height: 300px; top: -90px; right: -110px; background: radial-gradient(circle,rgba(91,123,170,.45),transparent 65%); }
 .cover-orb.b { width: 340px; height: 340px; bottom: -120px; left: -120px; background: radial-gradient(circle,rgba(46,86,140,.5),transparent 68%); }
-.cover-top { position: relative; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.cover-top { position: relative; display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 4px; }
 .cover-logo { width: 74px; height: 74px; border-radius: 22px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.24); display: flex; align-items: center; justify-content: center; font-family: 'Nunito'; font-weight: 900; font-size: calc(28px*var(--scale)); letter-spacing: .02em; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
 .cover-clinic { font-size: calc(13px*var(--scale)); letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.62); }
-.cover-mid { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; align-items: center; }
+.cover-mid { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; align-items: center; padding: 20px 0; }
 .cover-eyebrow { font-family: 'Nunito'; font-weight: 700; font-size: calc(14px*var(--scale)); color: var(--navy-300); background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); padding: 7px 15px; border-radius: 999px; margin-bottom: 20px; }
 .cover-name { margin: 0; font-weight: 900; font-size: calc(34px*var(--scale)); line-height: 1.08; letter-spacing: -.02em; }
 .cover-spec { margin: 10px 0 0; font-size: calc(15px*var(--scale)); color: rgba(255,255,255,.72); }
 .cover-welcome { margin: 22px 0 0; font-size: calc(16px*var(--scale)); line-height: 1.55; color: rgba(255,255,255,.82); max-width: 32ch; }
-.cover-bottom { position: relative; display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.cover-enter { appearance: none; border: 0; cursor: pointer; width: 100%; background: #fff; color: var(--navy); font-family: 'Nunito'; font-weight: 800; font-size: calc(19px*var(--scale)); display: flex; align-items: center; justify-content: center; gap: 6px; padding: 19px 24px; border-radius: 18px; box-shadow: 0 12px 30px rgba(0,0,0,.28); transition: transform .14s ease; }
+.cover-bottom { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.cover-enter { appearance: none; border: 0; cursor: pointer; width: auto; background: #fff; color: var(--navy); font-family: 'Nunito'; font-weight: 800; font-size: calc(17px*var(--scale)); display: flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 40px; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,.22); transition: transform .14s ease; }
 .cover-enter:active { transform: scale(.97); }
 .cover-foot { font-size: calc(13px*var(--scale)); color: rgba(255,255,255,.5); }
 
@@ -245,10 +245,10 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
 
   /* cover left text — no welcome text on desktop */
   .cover-welcome { display: none; }
-  .cover-name { font-size: 38px; }
-  .cover-mid { text-align: left; align-items: flex-start; }
-  .cover-bottom { align-items: flex-start; }
-  .cover-enter { width: auto; padding: 17px 36px; font-size: 18px; border-radius: 16px; }
+  .cover-name { font-size: 40px; }
+  .cover-mid { text-align: center; align-items: center; }
+  .cover-bottom { align-items: center; }
+  .cover-enter { width: auto; padding: 16px 48px; font-size: 18px; border-radius: 999px; }
 
   /* ── HOME ── */
   .home { max-width: 1100px; margin: 0 auto; padding: 0 40px 60px; }
