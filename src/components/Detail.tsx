@@ -302,7 +302,7 @@ function VideoPlayer({ section }: { section: Section }) {
     return (
       <div className="video-wrap">
         <div className="video real" onClick={toggle}>
-          <video ref={videoRef} className="video-el" playsInline preload="metadata"
+          <video ref={videoRef} className="video-el" playsInline preload="auto"
             onEnded={() => setPlaying(false)} onPause={() => setPlaying(false)} onPlay={() => setPlaying(true)}>
             <source src={section.videoUrl} type="video/mp4" />
           </video>
