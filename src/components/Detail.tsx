@@ -121,9 +121,8 @@ function LensSelector({ section }: { section: Section }) {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, marginBottom: 12 }}>
           {q1opts.map(o => (
             <button key={o.v} className={"lens-qb" + (ans.q1 === o.v ? " on" : "")} onClick={() => pick("q1", o.v)}>
-              <i className={`ti ${o.icon}`} aria-hidden="true" />
-              <span className="lens-qb-l">{o.label}</span>
-              <span className="lens-qb-s">{o.sub}</span>
+              <div className="lens-qb-l">{o.label}</div>
+              <div className="lens-qb-s">{o.sub}</div>
             </button>
           ))}
         </div>
@@ -132,9 +131,8 @@ function LensSelector({ section }: { section: Section }) {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, marginBottom: 12 }}>
           {q2opts.map(o => (
             <button key={o.v} className={"lens-qb" + (ans.q2 === o.v ? " on" : "")} onClick={() => pick("q2", o.v)}>
-              <i className={`ti ${o.icon}`} aria-hidden="true" />
-              <span className="lens-qb-l">{o.label}</span>
-              <span className="lens-qb-s">{o.sub}</span>
+              <div className="lens-qb-l">{o.label}</div>
+              <div className="lens-qb-s">{o.sub}</div>
             </button>
           ))}
         </div>
@@ -143,9 +141,8 @@ function LensSelector({ section }: { section: Section }) {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>
           {q3opts.map(o => (
             <button key={o.v} className={"lens-qb" + (ans.q3 === o.v ? " on" : "")} onClick={() => pick("q3", o.v)}>
-              <i className={`ti ${o.icon}`} aria-hidden="true" />
-              <span className="lens-qb-l">{o.label}</span>
-              <span className="lens-qb-s">{o.sub}</span>
+              <div className="lens-qb-l">{o.label}</div>
+              <div className="lens-qb-s">{o.sub}</div>
             </button>
           ))}
         </div>
