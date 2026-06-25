@@ -117,32 +117,50 @@ function LensSelector({ section }: { section: Section }) {
 
       {/* QUIZ */}
       <div style={{ background: "#fff", borderRadius: 18, padding: 16, marginBottom: 14, border: "1px solid #E7E3D8" }}>
-        <div className="lens-ql">¿Qué actividades hacés más?</div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, marginBottom: 12 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase" as const, color: "#5B6472", marginBottom: 10 }}>¿Qué actividades hacés más?</div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 12 }}>
           {q1opts.map(o => (
-            <button key={o.v} className={"lens-qb" + (ans.q1 === o.v ? " on" : "")} onClick={() => pick("q1", o.v)}>
-              <div className="lens-qb-l">{o.label}</div>
-              <div className="lens-qb-s">{o.sub}</div>
+            <button key={o.v} onClick={() => pick("q1", o.v)} style={{
+              background: ans.q1 === o.v ? "#EAF0F9" : "#F4F2EC",
+              border: `1.5px solid ${ans.q1 === o.v ? "#13294B" : "#E7E3D8"}`,
+              borderRadius: 12, padding: "12px 10px", textAlign: "left" as const,
+              cursor: "pointer", fontFamily: "inherit", display: "flex",
+              flexDirection: "column" as const, gap: 4, width: "100%", minHeight: 72,
+            }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: "#161A20", lineHeight: 1.35 }}>{o.label}</div>
+              <div style={{ fontSize: 11, color: "#5B6472", lineHeight: 1.3 }}>{o.sub}</div>
             </button>
           ))}
         </div>
         <div style={{ height: 1, background: "#E7E3D8", margin: "12px 0" }} />
-        <div className="lens-ql">¿Tenés astigmatismo diagnosticado?</div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, marginBottom: 12 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase" as const, color: "#5B6472", marginBottom: 10 }}>¿Tenés astigmatismo diagnosticado?</div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 12 }}>
           {q2opts.map(o => (
-            <button key={o.v} className={"lens-qb" + (ans.q2 === o.v ? " on" : "")} onClick={() => pick("q2", o.v)}>
-              <div className="lens-qb-l">{o.label}</div>
-              <div className="lens-qb-s">{o.sub}</div>
+            <button key={o.v} onClick={() => pick("q2", o.v)} style={{
+              background: ans.q2 === o.v ? "#EAF0F9" : "#F4F2EC",
+              border: `1.5px solid ${ans.q2 === o.v ? "#13294B" : "#E7E3D8"}`,
+              borderRadius: 12, padding: "12px 10px", textAlign: "left" as const,
+              cursor: "pointer", fontFamily: "inherit", display: "flex",
+              flexDirection: "column" as const, gap: 4, width: "100%", minHeight: 72,
+            }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: "#161A20", lineHeight: 1.35 }}>{o.label}</div>
+              <div style={{ fontSize: 11, color: "#5B6472", lineHeight: 1.3 }}>{o.sub}</div>
             </button>
           ))}
         </div>
         <div style={{ height: 1, background: "#E7E3D8", margin: "12px 0" }} />
-        <div className="lens-ql">¿Qué tan importante es no usar anteojos?</div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase" as const, color: "#5B6472", marginBottom: 10 }}>¿Qué tan importante es no usar anteojos?</div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
           {q3opts.map(o => (
-            <button key={o.v} className={"lens-qb" + (ans.q3 === o.v ? " on" : "")} onClick={() => pick("q3", o.v)}>
-              <div className="lens-qb-l">{o.label}</div>
-              <div className="lens-qb-s">{o.sub}</div>
+            <button key={o.v} onClick={() => pick("q3", o.v)} style={{
+              background: ans.q3 === o.v ? "#EAF0F9" : "#F4F2EC",
+              border: `1.5px solid ${ans.q3 === o.v ? "#13294B" : "#E7E3D8"}`,
+              borderRadius: 12, padding: "12px 10px", textAlign: "left" as const,
+              cursor: "pointer", fontFamily: "inherit", display: "flex",
+              flexDirection: "column" as const, gap: 4, width: "100%", minHeight: 72,
+            }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: "#161A20", lineHeight: 1.35 }}>{o.label}</div>
+              <div style={{ fontSize: 11, color: "#5B6472", lineHeight: 1.3 }}>{o.sub}</div>
             </button>
           ))}
         </div>
