@@ -558,3 +558,20 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
 @media (min-width: 768px) {
   .sidebar-desktop-only { display: contents; }
 }
+
+/* ── LENS SELECTOR ─────────────────────────────────── */
+.lens-ql { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.lens-qb { background: var(--paper); border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 8px; text-align: left; cursor: pointer; font-family: inherit; display: flex; flex-direction: column; gap: 3px; transition: all .12s; width: 100%; }
+.lens-qb.on { border-color: var(--navy); background: var(--accent-soft); }
+.lens-qb i { font-size: 18px; color: var(--muted); }
+.lens-qb.on i { color: var(--navy); }
+.lens-qb-l { font-size: 12px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+.lens-qb-s { font-size: 10px; color: var(--muted); line-height: 1.3; }
+
+/* Simulador trigger */
+.sim-trigger { width: 100%; background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; font-family: inherit; transition: all .15s; margin-top: 4px; }
+.sim-trigger:active { background: var(--accent-soft); border-color: var(--navy); }
+.sim-trigger-ico { width: 42px; height: 42px; background: var(--accent-soft); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex: none; color: var(--navy); }
+.sim-trigger-txt { text-align: left; flex: 1; }
+.sim-trigger-label { font-size: 14px; font-weight: 700; color: var(--navy); display: block; margin-bottom: 2px; }
+.sim-trigger-sub { font-size: 12px; color: var(--muted); }
