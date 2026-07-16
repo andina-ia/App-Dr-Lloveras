@@ -1,4 +1,4 @@
-export type SectionId = "pasos" | "lente" | "pre" | "post";
+export type SectionId = "pasos" | "lente" | "pre" | "preq" | "post";
 export type IconId = "steps" | "lens" | "clipboard" | "eye";
 export type SummaryKind = "steps" | "check";
 
@@ -82,6 +82,24 @@ export const sections: Section[] = [
     id: "pre", icon: "clipboard",
     title: "Indicaciones a partir del primer control", sub: "Qué hacer después del primer control",
     detailTitle: "Indicaciones a partir del primer control",
+    videoIntro: "El Dr. Lloveras te explica los cuidados y pasos a seguir a partir de tu primer control post operatorio.",
+    pdfName: "Indicaciones-primer-control.pdf", pdfMeta: "PDF · 2 páginas",
+    summaryTitle: "Recordá", summaryKind: "check",
+    summary: [
+      { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
+      { h: "Vení a los controles programados", t: "Los controles son clave para asegurarnos de que todo evoluciona bien." },
+      { h: "Cuidá el ojo operado", t: "Evitá frotarlo y usá el protector para dormir los primeros días." },
+      { h: "Avisá cualquier molestia", t: "Si tenés dolor fuerte, enrojecimiento o pérdida de visión, escribinos enseguida." },
+    ],
+    faq: [
+      { q: "¿Cuándo voy a ver bien?", a: "La visión mejora en los primeros días y se va estabilizando en las semanas siguientes." },
+      { q: "¿Puedo mirar el celular o la tele?", a: "Sí, con moderación y descansos. No daña tu ojo operado." },
+    ],
+  },
+  {
+    id: "preq", icon: "clipboard",
+    title: "Indicaciones antes de la cirugía", sub: "Qué hacer antes de operarte",
+    detailTitle: "Indicaciones antes de la cirugía",
     videoIntro: "Mirá este video para preparar todo con tranquilidad los días previos a la operación.",
     pdfName: "Indicaciones-prequirurgicas.pdf", pdfMeta: "PDF · 2 páginas",
     summaryTitle: "Recordá", summaryKind: "check",
