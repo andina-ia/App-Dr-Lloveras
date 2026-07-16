@@ -80,7 +80,7 @@ export const sections: Section[] = [
   },
   {
     id: "pre", icon: "clipboard",
-    title: "Indicaciones pre quirúrgicas", sub: "Qué hacer antes de la cirugía",
+    title: "Indicaciones a partir del primer control", sub: "Qué hacer después del primer control",
     detailTitle: "Indicaciones a partir del primer control",
     videoIntro: "Mirá este video para preparar todo con tranquilidad los días previos a la operación.",
     pdfName: "Indicaciones-prequirurgicas.pdf", pdfMeta: "PDF · 2 páginas",
