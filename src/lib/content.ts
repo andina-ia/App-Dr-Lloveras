@@ -89,6 +89,8 @@ export const sections: Section[] = [
       { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
       { h: "Vení a los controles programados", t: "Los controles son clave para asegurarnos de que todo evoluciona bien." },
       { h: "Cuidá el ojo operado", t: "Evitá frotarlo y usá el protector para dormir los primeros días." },
+      { h: "Evitá conducir los primeros días", t: "Hasta que tu visión se estabilice, no manejes. Coordiná con alguien de confianza." },
+      { h: "No dejés tu medicación habitual", t: "Recordá continuar con los medicamentos que tomás habitualmente, salvo indicación en contrario." },
       { h: "Avisá cualquier molestia", t: "Si tenés dolor fuerte, enrojecimiento o pérdida de visión, escribinos enseguida." },
     ],
     faq: [
