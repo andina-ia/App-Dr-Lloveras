@@ -50,12 +50,12 @@ export const sections: Section[] = [
     summary: [
       { h: "Consulta y estudios previos", t: "Evaluamos tu vista y pedimos los estudios necesarios para planificar la cirugía." },
       { h: "Preparación los días previos", t: "Recibís las indicaciones pre quirúrgicas: gotas, ayuno y qué llevar el día de la operación." },
-      { h: "Día de la cirugía", t: "Es ambulatoria y dura pocos minutos. Volvés a casa el mismo día acompañado/a." },
+      { h: "Día de la cirugía", t: "Es ambulatoria y dura entre 5 y 15 minutos. Volvés a casa el mismo día." },
       { h: "Recuperación y controles", t: "Seguís las indicaciones post quirúrgicas y venís a los controles programados." },
     ],
     faq: [
       { q: "¿Cuánto dura la cirugía?", a: "La cirugía en sí suele durar entre 15 y 30 minutos. El día completo en el centro es de unas pocas horas." },
-      { q: "¿Tengo que quedarme internado/a?", a: "No. Es una cirugía ambulatoria: el mismo día volvés a tu casa, siempre acompañado/a." },
+      { q: "¿Tengo que quedarme internado/a?", a: "No. Es una cirugía ambulatoria: el mismo día volvés a tu casa." },
       { q: "¿Voy a sentir dolor?", a: "No. Se realiza con anestesia local en gotas y sedación. Podés sentir presión leve, pero no dolor." },
     ],
   },
@@ -107,7 +107,6 @@ export const sections: Section[] = [
     summaryTitle: "Recordá", summaryKind: "check",
     summary: [
       { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
-      { h: "Respetá el ayuno", t: "No comas ni tomes líquidos en las horas previas que figuran en tu indicación." },
       { h: "Vení acompañado/a", t: "No vas a poder manejar. Coordiná con alguien que te lleve y te traiga." },
       { h: "Avisá tu medicación", t: "Contanos qué medicamentos tomás; te diremos cuáles continuar o suspender." },
     ],
