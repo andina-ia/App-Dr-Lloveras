@@ -1,4 +1,4 @@
-export type SectionId = "pasos" | "lente" | "pre" | "preq" | "post";
+export type SectionId = "pasos" | "lente" | "prequirurgica" | "pre" | "preq" | "post";
 export type IconId = "steps" | "lens" | "clipboard" | "eye";
 export type SummaryKind = "steps" | "check";
 
@@ -50,12 +50,12 @@ export const sections: Section[] = [
     summary: [
       { h: "Consulta y estudios previos", t: "Evaluamos tu vista y pedimos los estudios necesarios para planificar la cirugía." },
       { h: "Preparación los días previos", t: "Recibís las indicaciones pre quirúrgicas: gotas, ayuno y qué llevar el día de la operación." },
-      { h: "Día de la cirugía", t: "Es ambulatoria y dura pocos minutos. Volvés a casa el mismo día acompañado/a." },
+      { h: "Día de la cirugía", t: "Es ambulatoria y dura entre 5 y 15 minutos. Volvés a casa el mismo día." },
       { h: "Recuperación y controles", t: "Seguís las indicaciones post quirúrgicas y venís a los controles programados." },
     ],
     faq: [
       { q: "¿Cuánto dura la cirugía?", a: "La cirugía en sí suele durar entre 15 y 30 minutos. El día completo en el centro es de unas pocas horas." },
-      { q: "¿Tengo que quedarme internado/a?", a: "No. Es una cirugía ambulatoria: el mismo día volvés a tu casa, siempre acompañado/a." },
+      { q: "¿Tengo que quedarme internado/a?", a: "No. Es una cirugía ambulatoria: el mismo día volvés a tu casa." },
       { q: "¿Voy a sentir dolor?", a: "No. Se realiza con anestesia local en gotas y sedación. Podés sentir presión leve, pero no dolor." },
     ],
   },
@@ -79,6 +79,23 @@ export const sections: Section[] = [
     ],
   },
   {
+    id: "prequirurgica", icon: "clipboard",
+    title: "Indicaciones pre quirúrgicas", sub: "Qué hacer antes de la cirugía",
+    detailTitle: "Indicaciones pre quirúrgicas",
+    videoIntro: "Mirá este video para preparar todo con tranquilidad los días previos a la operación.",
+    pdfName: "Indicaciones-prequirurgicas.pdf", pdfMeta: "PDF · 2 páginas",
+    summaryTitle: "Recordá", summaryKind: "check",
+    summary: [
+      { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
+      { h: "Vení acompañado/a", t: "No vas a poder manejar. Coordiná con alguien que te lleve y te traiga." },
+      { h: "Avisá tu medicación", t: "Contanos qué medicamentos tomás; te diremos cuáles continuar o suspender." },
+    ],
+    faq: [
+      { q: "¿Puedo tomar mis remedios habituales?", a: "En general sí, pero algunos se suspenden. Seguí siempre la indicación que te dimos en la consulta." },
+      { q: "¿Puedo desayunar ese día?", a: "Depende del horario de tu cirugía. Respetá el ayuno indicado en tu hoja de indicaciones." },
+    ],
+  },
+  {
     id: "pre", icon: "clipboard",
     title: "Indicaciones a partir del primer control", sub: "Qué hacer después del primer control",
     detailTitle: "Indicaciones a partir del primer control",
@@ -89,6 +106,8 @@ export const sections: Section[] = [
       { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
       { h: "Vení a los controles programados", t: "Los controles son clave para asegurarnos de que todo evoluciona bien." },
       { h: "Cuidá el ojo operado", t: "Evitá frotarlo y usá el protector para dormir los primeros días." },
+      { h: "Evitá conducir los primeros días", t: "Hasta que tu visión se estabilice, no manejes. Coordiná con alguien de confianza." },
+      { h: "No dejés tu medicación habitual", t: "Recordá continuar con los medicamentos que tomás habitualmente, salvo indicación en contrario." },
       { h: "Avisá cualquier molestia", t: "Si tenés dolor fuerte, enrojecimiento o pérdida de visión, escribinos enseguida." },
     ],
     faq: [
@@ -105,7 +124,6 @@ export const sections: Section[] = [
     summaryTitle: "Recordá", summaryKind: "check",
     summary: [
       { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
-      { h: "Respetá el ayuno", t: "No comas ni tomes líquidos en las horas previas que figuran en tu indicación." },
       { h: "Vení acompañado/a", t: "No vas a poder manejar. Coordiná con alguien que te lleve y te traiga." },
       { h: "Avisá tu medicación", t: "Contanos qué medicamentos tomás; te diremos cuáles continuar o suspender." },
     ],
