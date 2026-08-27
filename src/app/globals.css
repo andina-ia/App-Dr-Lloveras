@@ -378,3 +378,50 @@ h1, h2, .brand-name, .opt-title, .detail-title, .wa-label, .play-btn { font-fami
   .lens-qb-s { font-size: 11px; color: var(--muted); line-height: 1.3; display: block; }
   .lens-ql { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
 }
+
+/* ── SURGERY CARD ─────────────────────────────────── */
+.surgery-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  background: var(--card);
+  border: none;
+  border-radius: 20px;
+  padding: 22px 20px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.surgery-card:active { transform: scale(.98); }
+.surgery-card-ico {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.surgery-card-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+.surgery-card-title {
+  font-family: 'Nunito';
+  font-weight: 800;
+  font-size: calc(18px*var(--scale));
+  color: var(--navy);
+  line-height: 1.2;
+}
+.surgery-card-sub {
+  font-size: calc(13px*var(--scale));
+  color: var(--muted);
+  line-height: 1.4;
+}
+.surgery-card-arrow { color: var(--navy-300); flex: none; }
+
+@media (min-width: 768px) {
+  .surgery-card { max-width: 560px; margin: 0 auto; padding: 28px 24px; }
+  .surgery-card-title { font-size: 20px; }
+}

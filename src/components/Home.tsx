@@ -1,23 +1,16 @@
 "use client";
-import { Section, brand } from "@/lib/content";
-import { Icons, EyeLogo, SectionIcon } from "./Icons";
-
-type Layout = "stacked" | "list" | "mosaic";
+import { brand } from "@/lib/content";
+import { Icons, EyeLogo } from "./Icons";
 
 export function Home({
-  sections,
-  layout,
   onOpen,
   onBack,
 }: {
-  sections: Section[];
-  layout: Layout;
-  onOpen: (s: Section) => void;
+  onOpen: () => void;
   onBack: () => void;
 }) {
   return (
     <div className="screen home fade-enter">
-      {/* HEADER */}
       <header className="home-head">
         <button className="home-back" onClick={onBack} aria-label="Volver a la portada">
           <Icons.back width={22} height={22} /><span>Portada</span>
@@ -33,21 +26,22 @@ export function Home({
         <p className="home-intro">{brand.intro}</p>
       </header>
 
-      {/* CARDS */}
-      <div className="opt-grid stacked">
-        {sections.map((s, i) => (
-          <button key={s.id} className="opt-card stacked" onClick={() => onOpen(s)}>
-            <div className="card-top">
-              <div className="card-num">{i + 1}</div>
-              <div className="card-ico"><SectionIcon id={s.id} /></div>
-            </div>
-            <div className="card-body">
-              <div className="card-title">{s.title}</div>
-              <div className="card-sub">{s.sub}</div>
-            </div>
-            <div className="card-arrow"><Icons.chevron width={20} height={20} /></div>
-          </button>
-        ))}
+      <div style={{ padding: "24px 20px" }}>
+        <button className="surgery-card" onClick={onOpen}>
+          <div className="surgery-card-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" width="28" height="28">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4l3 3"/>
+            </svg>
+          </div>
+          <div className="surgery-card-txt">
+            <div className="surgery-card-title">Acompañamiento cirugía de cataratas</div>
+            <div className="surgery-card-sub">Videos, indicaciones y guías para cada etapa de tu cirugía</div>
+          </div>
+          <div className="surgery-card-arrow">
+            <Icons.chevron width={24} height={24} />
+          </div>
+        </button>
       </div>
 
       <div className="home-foot">

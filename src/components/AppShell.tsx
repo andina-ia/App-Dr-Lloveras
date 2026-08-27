@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
-import { Section, sections as allSections } from "@/lib/content";
+import { Section } from "@/lib/content";
 import { Cover } from "./Cover";
 import { Home } from "./Home";
+import { SectionList } from "./SectionList";
 import { Detail } from "./Detail";
 
-type Screen = "cover" | "home" | "detail";
+type Screen = "cover" | "home" | "sections" | "detail";
 type Scale = 1 | 1.12 | 1.26;
 
 export function AppShell({ sections }: { sections: Section[] }) {
@@ -26,22 +27,26 @@ export function AppShell({ sections }: { sections: Section[] }) {
       {screen === "cover" && <Cover onEnter={() => setScreen("home")} />}
       {screen === "home" && (
         <Home
-          sections={sections}
-          layout="stacked"
-          onOpen={openSection}
+          onOpen={() => setScreen("sections")}
           onBack={() => setScreen("cover")}
+        />
+      )}
+      {screen === "sections" && (
+        <SectionList
+          sections={sections}
+          onOpen={openSection}
+          onBack={() => setScreen("home")}
         />
       )}
       {screen === "detail" && (
         <Detail
           section={current}
           sections={sections}
-          onBack={() => setScreen("home")}
+          onBack={() => setScreen("sections")}
           onSelect={openSection}
         />
       )}
 
-      {/* Accessibility bar */}
       <div className="a11y-bar">
         {scales.map((s, i) => (
           <button
