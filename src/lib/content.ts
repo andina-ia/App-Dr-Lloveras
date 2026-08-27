@@ -1,4 +1,4 @@
-export type SectionId = "pasos" | "lente" | "pre" | "preq" | "post";
+export type SectionId = "pasos" | "lente" | "prequirurgica" | "pre" | "preq" | "post";
 export type IconId = "steps" | "lens" | "clipboard" | "eye";
 export type SummaryKind = "steps" | "check";
 
@@ -76,6 +76,23 @@ export const sections: Section[] = [
       { q: "¿Cuál es el mejor lente?", a: "No hay uno mejor para todos: el ideal es el que se adapta a tu vista y a tu vida. En la consulta evaluamos tu caso y te recomendamos." },
       { q: "¿La obra social cubre todos los lentes?", a: "La cobertura varía según el tipo de lente y tu cobertura. Te informamos las opciones y los costos antes de decidir." },
       { q: "¿Puedo cambiar el lente después?", a: "El lente intraocular es permanente. Por eso es importante elegir bien antes de la cirugía; te acompañamos en esa decisión." },
+    ],
+  },
+  {
+    id: "prequirurgica", icon: "clipboard",
+    title: "Indicaciones pre quirúrgicas", sub: "Qué hacer antes de la cirugía",
+    detailTitle: "Indicaciones pre quirúrgicas",
+    videoIntro: "Mirá este video para preparar todo con tranquilidad los días previos a la operación.",
+    pdfName: "Indicaciones-prequirurgicas.pdf", pdfMeta: "PDF · 2 páginas",
+    summaryTitle: "Recordá", summaryKind: "check",
+    summary: [
+      { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
+      { h: "Vení acompañado/a", t: "No vas a poder manejar. Coordiná con alguien que te lleve y te traiga." },
+      { h: "Avisá tu medicación", t: "Contanos qué medicamentos tomás; te diremos cuáles continuar o suspender." },
+    ],
+    faq: [
+      { q: "¿Puedo tomar mis remedios habituales?", a: "En general sí, pero algunos se suspenden. Seguí siempre la indicación que te dimos en la consulta." },
+      { q: "¿Puedo desayunar ese día?", a: "Depende del horario de tu cirugía. Respetá el ayuno indicado en tu hoja de indicaciones." },
     ],
   },
   {
