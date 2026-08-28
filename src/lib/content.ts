@@ -43,6 +43,8 @@ export const sections: Section[] = [
   {
     id: "pasos",
     icon: "steps",
+    videoUrl: "https://4paycditbkbuyusv.private.blob.vercel-storage.com/lloveras/pasos-video-1782391893432-Avatar_3.mp4",
+    pdfUrl: "https://4paycditbkbuyusv.private.blob.vercel-storage.com/lloveras/pasos-pdf-1782330217656-Pasos%20a%20seguir.pdf",
     title: "Pasos a seguir",
     sub: "El camino de tu cirugía, paso a paso",
     detailTitle: "Pasos de tu cirugía de cataratas",
@@ -111,6 +113,8 @@ export const sections: Section[] = [
   {
     id: "pre",
     icon: "clipboard",
+    videoUrl: "https://4paycditbkbuyusv.private.blob.vercel-storage.com/lloveras/pre-video-1782391558073-Avatar_4.mp4",
+    pdfUrl: "https://4paycditbkbuyusv.private.blob.vercel-storage.com/lloveras/pre-pdf-1782330235159-Indicaciones%20pre%20quir%C3%BArgicas.pdf",
     title: "Indicaciones a partir del primer control",
     sub: "Qué hacer después del primer control",
     detailTitle: "Indicaciones a partir del primer control",
@@ -135,6 +139,8 @@ export const sections: Section[] = [
   {
     id: "post",
     icon: "eye",
+    videoUrl: "https://4paycditbkbuyusv.private.blob.vercel-storage.com/lloveras/post-video-1782391479049-Avatar_1.mp4",
+    pdfUrl: "https://4paycditbkbuyusv.private.blob.vercel-storage.com/lloveras/post-pdf-1782330281071-Indicaciones%20post%20quir%C3%BArgicas.pdf",
     title: "Indicaciones post quirúrgicas",
     sub: "Cuidados después de la cirugía",
     detailTitle: "Después de tu cirugía",
