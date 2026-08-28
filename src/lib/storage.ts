@@ -19,7 +19,7 @@ export async function getContent(): Promise<ContentMap> {
     if (blobs.length > 0) {
       const res = await fetch(blobs[0].url, {
         headers: { Authorization: `Bearer ${token}` },
-        cache: "no-store",
+        next: { revalidate: 60 },
       });
       if (res.ok) return await res.json();
     }
