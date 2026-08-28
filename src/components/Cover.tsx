@@ -18,7 +18,7 @@ export function Cover({ onEnter }: { onEnter: () => void }) {
           <span className="cover-clinic">Oftalmología</span>
         </div>
         <div className="cover-mid">
-          <div className="cover-eyebrow">Guía para tu cirugía de cataratas</div>
+          <div className="cover-eyebrow">Guía para tu cirugía</div>
           <h1 className="cover-name">{brand.name}</h1>
           <p className="cover-spec">{brand.specialty}</p>
           <p className="cover-welcome">
