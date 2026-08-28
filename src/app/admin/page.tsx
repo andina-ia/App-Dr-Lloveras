@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
+import { upload } from "@vercel/blob/client";
 import { sections } from "@/lib/content";
 import { ContentMap, SectionContent } from "@/lib/storage";
 
@@ -38,24 +39,15 @@ function SectionUploader({
     try {
       const blobPath = `lloveras/${sectionId}-${type}-${Date.now()}-${file.name}`;
 
-      setStatus(s => ({ ...s, [type]: "Subiendo…" }));
-
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("path", blobPath);
-
-      const uploadRes = await fetch("/api/upload", {
-        method: "POST",
-        headers: { "x-admin-password": password },
-        body: formData,
+      const blob = await upload(blobPath, file, {
+        access: "private",
+        handleUploadUrl: "/api/upload",
+        onUploadProgress: ({ percentage }) => {
+          setStatus(s => ({ ...s, [type]: `Subiendo… ${Math.round(percentage)}%` }));
+        },
       });
 
-      if (!uploadRes.ok) {
-        const err = await uploadRes.json();
-        throw new Error(err.error || "Error al subir");
-      }
-
-      const { url } = await uploadRes.json();
+      const url = blob.url;
 
       const newContent: SectionContent = {
         ...content,
