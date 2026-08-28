@@ -11,10 +11,13 @@ export default async function Page() {
   const enriched = await Promise.all(
     sections.map(async s => {
       const c = content[s.id] || {};
+      // Blob tiene prioridad, content.ts es fallback
+      const videoUrl = c.videoUrl || s.videoUrl;
+      const pdfUrl = c.pdfUrl || s.pdfUrl;
       return {
         ...s,
-        videoUrl: c.videoUrl ? await getSignedUrl(c.videoUrl) : undefined,
-        pdfUrl: c.pdfUrl ? await getSignedUrl(c.pdfUrl) : undefined,
+        videoUrl: videoUrl ? await getSignedUrl(videoUrl) : undefined,
+        pdfUrl: pdfUrl ? await getSignedUrl(pdfUrl) : undefined,
       };
     })
   );
