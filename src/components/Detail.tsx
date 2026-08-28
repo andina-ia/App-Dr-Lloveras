@@ -304,7 +304,7 @@ function VideoPlayer({ section }: { section: Section }) {
         <div className="video real" onClick={toggle}>
           <video ref={videoRef} className="video-el" playsInline preload="auto"
             onEnded={() => setPlaying(false)} onPause={() => setPlaying(false)} onPlay={() => setPlaying(true)}>
-            <source src={section.videoUrl.includes('vercel-blob-delegation') || section.videoUrl.includes('vercel-blob-signature') ? section.videoUrl : `/api/media?url=${encodeURIComponent(section.videoUrl)}`} type="video/mp4" />
+            <source src={`/api/media?url=${encodeURIComponent(section.videoUrl.split('?')[0])}`} type="video/mp4" />
           </video>
           <button className="video-expand" aria-label="Pantalla completa" onClick={expand}><Icons.expand width={20} height={20} /></button>
           {!playing && <div className="video-center"><button className="play-btn" aria-label="Reproducir"><Icons.play width={32} height={32} style={{ marginLeft: 4 }} /></button></div>}
@@ -337,10 +337,9 @@ function VideoPlayer({ section }: { section: Section }) {
 function PdfCard({ section }: { section: Section }) {
   const [done, setDone] = useState(false);
   if (section.pdfUrl) {
-    // Si la URL ya tiene firma (viene del getSignedUrl server-side), usarla directo
-    // Si no, usar el proxy
-    const isSigned = section.pdfUrl.includes('vercel-blob-delegation') || section.pdfUrl.includes('vercel-blob-signature');
-    const href = isSigned ? section.pdfUrl : `/api/media?url=${encodeURIComponent(section.pdfUrl)}`;
+    // Extraer la URL base sin query params de firma para pasarla al proxy
+    const baseUrl = section.pdfUrl.split('?')[0];
+    const href = `/api/media?url=${encodeURIComponent(baseUrl)}`;
     return (
       <a className={"pdf-card" + (done ? " done" : "")} href={href} target="_blank" rel="noreferrer" onClick={() => setDone(true)} style={{ textDecoration: "none" }}>
         <span className="pdf-ico"><Icons.pdf width={26} height={26} /></span>
