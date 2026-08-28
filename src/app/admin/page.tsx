@@ -6,7 +6,8 @@ import { ContentMap, SectionContent } from "@/lib/storage";
 const SECTION_LABELS: Record<string, string> = {
   pasos: "Pasos a seguir",
   lente: "Cómo elegir tu lente",
-  pre: "Indicaciones pre quirúrgicas",
+  preq: "Indicaciones antes de la cirugía",
+  pre: "Indicaciones a partir del primer control",
   post: "Indicaciones post quirúrgicas",
 };
 
