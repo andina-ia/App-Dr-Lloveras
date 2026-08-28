@@ -102,9 +102,10 @@ export const sections: Section[] = [
     videoUrl: "https://4paycditbkbuyusv.private.blob.vercel-storage.com/pre_cirugia_compressed.mp4",
     pdfUrl: "https://4paycditbkbuyusv.private.blob.vercel-storage.com/lloveras/Indicaciones_Antes_Cirugia.pdf",
     summary: [
-      { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
-      { h: "Vení acompañado/a", t: "No vas a poder manejar. Coordiná con alguien que te lleve y te traiga." },
-      { h: "Avisá tu medicación", t: "Contanos qué medicamentos tomás; te diremos cuáles continuar o suspender." },
+      { h: "El día de la cirugía", t: "Llegue puntual. Puede venir acompañado por una sola persona. Traiga sus análisis y electrocardiograma con evaluación de riesgo quirúrgico." },
+      { h: "Cuidados de higiene", t: "La noche anterior lávese la cara con jabón de Pervinox o jabón blanco. Acuda sin maquillaje, sin esmalte en las uñas y sin alhajas. Preséntese en ayunas." },
+      { h: "Gotas antes de la cirugía", t: "Dos días antes: Quidex, una gota cuatro veces al día en el ojo a operar. Si le indicaron Fotorretin o Tropioftal: una gota cada 15 minutos durante la hora previa." },
+      { h: "Gotas después de la cirugía", t: "Continúe con el Quidex cada hora hasta el primer control. No es necesario que se despierte de noche para colocarse las gotas." },
     ],
     faq: [
       { q: "¿Puedo tomar mis remedios habituales?", a: "En general sí, pero algunos se suspenden. Seguí siempre la indicación que te dimos en la consulta." },
