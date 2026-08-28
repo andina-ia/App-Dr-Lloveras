@@ -39,7 +39,7 @@ export const contact: Contact = {
   phone: "2645068102",
 };
 
-export const sections: Section[] = [
+export const sections: Section[
   {
     id: "pasos", icon: "steps",
     title: "Pasos a seguir", sub: "El camino de tu cirugía, paso a paso",
@@ -79,6 +79,23 @@ export const sections: Section[] = [
     ],
   },
   {
+    id: "preq", icon: "clipboard",
+    title: "Indicaciones antes de la cirugía", sub: "Qué hacer antes de operarte",
+    detailTitle: "Indicaciones antes de la cirugía",
+    videoIntro: "Mirá este video para preparar todo con tranquilidad los días previos a la operación.",
+    pdfName: "Indicaciones-prequirurgicas.pdf", pdfMeta: "PDF · 2 páginas",
+    summaryTitle: "Recordá", summaryKind: "check",
+    summary: [
+      { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
+      { h: "Vení acompañado/a", t: "No vas a poder manejar. Coordiná con alguien que te lleve y te traiga." },
+      { h: "Avisá tu medicación", t: "Contanos qué medicamentos tomás; te diremos cuáles continuar o suspender." },
+    ],
+    faq: [
+      { q: "¿Puedo tomar mis remedios habituales?", a: "En general sí, pero algunos se suspenden. Seguí siempre la indicación que te dimos en la consulta." },
+      { q: "¿Puedo desayunar ese día?", a: "Depende del horario de tu cirugía. Respetá el ayuno indicado en tu hoja de indicaciones." },
+    ],
+  },
+  {
     id: "pre", icon: "clipboard",
     title: "Indicaciones a partir del primer control", sub: "Qué hacer después del primer control",
     detailTitle: "Indicaciones a partir del primer control",
@@ -99,23 +116,6 @@ export const sections: Section[] = [
     ],
   },
   {
-    id: "preq", icon: "clipboard",
-    title: "Indicaciones antes de la cirugía", sub: "Qué hacer antes de operarte",
-    detailTitle: "Indicaciones antes de la cirugía",
-    videoIntro: "Mirá este video para preparar todo con tranquilidad los días previos a la operación.",
-    pdfName: "Indicaciones-prequirurgicas.pdf", pdfMeta: "PDF · 2 páginas",
-    summaryTitle: "Recordá", summaryKind: "check",
-    summary: [
-      { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
-      { h: "Vení acompañado/a", t: "No vas a poder manejar. Coordiná con alguien que te lleve y te traiga." },
-      { h: "Avisá tu medicación", t: "Contanos qué medicamentos tomás; te diremos cuáles continuar o suspender." },
-    ],
-    faq: [
-      { q: "¿Puedo tomar mis remedios habituales?", a: "En general sí, pero algunos se suspenden. Seguí siempre la indicación que te dimos en la consulta." },
-      { q: "¿Puedo desayunar ese día?", a: "Depende del horario de tu cirugía. Respetá el ayuno indicado en tu hoja de indicaciones." },
-    ],
-  },
-  {
     id: "post", icon: "eye",
     title: "Indicaciones post quirúrgicas", sub: "Cuidados después de la cirugía",
     detailTitle: "Después de tu cirugía",
@@ -133,5 +133,5 @@ export const sections: Section[] = [
       { q: "¿Puedo mirar el celular o la tele?", a: "Sí, con moderación y descansos. No daña tu ojo operado." },
       { q: "¿Y si siento molestias?", a: "Una molestia leve es normal. Si tenés dolor fuerte, mucho enrojecimiento o pérdida de visión, escribinos enseguida." },
     ],
-  },
+  }
 ];
