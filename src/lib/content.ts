@@ -1,4 +1,4 @@
-export type SectionId = "pasos" | "lente" | "pre" | "preq" | "post";
+export type SectionId = "pasos" | "lente" | "preq" | "pre" | "post";
 export type IconId = "steps" | "lens" | "clipboard" | "eye";
 export type SummaryKind = "steps" | "check";
 
@@ -39,14 +39,18 @@ export const contact: Contact = {
   phone: "2645068102",
 };
 
-export const sections: Section[
+export const sections: Section[] = [
   {
-    id: "pasos", icon: "steps",
-    title: "Pasos a seguir", sub: "El camino de tu cirugía, paso a paso",
+    id: "pasos",
+    icon: "steps",
+    title: "Pasos a seguir",
+    sub: "El camino de tu cirugía, paso a paso",
     detailTitle: "Pasos de tu cirugía de cataratas",
     videoIntro: "El Dr. Lloveras te explica, en pocos minutos, cómo será todo el proceso de principio a fin.",
-    pdfName: "Pasos-cirugia-de-cataratas.pdf", pdfMeta: "PDF · 3 páginas",
-    summaryTitle: "Las 4 etapas", summaryKind: "steps",
+    pdfName: "Pasos-cirugia-de-cataratas.pdf",
+    pdfMeta: "PDF · 3 páginas",
+    summaryTitle: "Las 4 etapas",
+    summaryKind: "steps",
     summary: [
       { h: "Consulta y estudios previos", t: "Evaluamos tu vista y pedimos los estudios necesarios para planificar la cirugía." },
       { h: "Preparación los días previos", t: "Recibís las indicaciones pre quirúrgicas: gotas, ayuno y qué llevar el día de la operación." },
@@ -60,12 +64,16 @@ export const sections: Section[
     ],
   },
   {
-    id: "lente", icon: "lens",
-    title: "Cómo elegir tu lente", sub: "Qué lente intraocular te conviene",
+    id: "lente",
+    icon: "lens",
+    title: "Cómo elegir tu lente",
+    sub: "Qué lente intraocular te conviene",
     detailTitle: "Elegir tu lente para la cirugía",
     videoIntro: "Durante la cirugía reemplazamos el cristalino opaco por un lente intraocular. El Dr. Lloveras te explica los tipos de lente y cómo elegir el que mejor se adapta a tu vida.",
-    pdfName: "Como-elegir-tu-lente.pdf", pdfMeta: "PDF · 2 páginas",
-    summaryTitle: "Tipos de lente", summaryKind: "check",
+    pdfName: "Como-elegir-tu-lente.pdf",
+    pdfMeta: "PDF · 2 páginas",
+    summaryTitle: "Tipos de lente",
+    summaryKind: "check",
     summary: [
       { h: "Lente monofocal", t: "Da una visión nítida a una sola distancia (en general de lejos). Es posible que necesites anteojos para leer de cerca." },
       { h: "Lente multifocal", t: "Ofrece visión de lejos y de cerca, con menos dependencia de los anteojos. Requiere un período de adaptación." },
@@ -79,12 +87,16 @@ export const sections: Section[
     ],
   },
   {
-    id: "preq", icon: "clipboard",
-    title: "Indicaciones antes de la cirugía", sub: "Qué hacer antes de operarte",
+    id: "preq",
+    icon: "clipboard",
+    title: "Indicaciones antes de la cirugía",
+    sub: "Qué hacer antes de operarte",
     detailTitle: "Indicaciones antes de la cirugía",
     videoIntro: "Mirá este video para preparar todo con tranquilidad los días previos a la operación.",
-    pdfName: "Indicaciones-prequirurgicas.pdf", pdfMeta: "PDF · 2 páginas",
-    summaryTitle: "Recordá", summaryKind: "check",
+    pdfName: "Indicaciones-prequirurgicas.pdf",
+    pdfMeta: "PDF · 2 páginas",
+    summaryTitle: "Recordá",
+    summaryKind: "check",
     summary: [
       { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
       { h: "Vení acompañado/a", t: "No vas a poder manejar. Coordiná con alguien que te lleve y te traiga." },
@@ -96,12 +108,16 @@ export const sections: Section[
     ],
   },
   {
-    id: "pre", icon: "clipboard",
-    title: "Indicaciones a partir del primer control", sub: "Qué hacer después del primer control",
+    id: "pre",
+    icon: "clipboard",
+    title: "Indicaciones a partir del primer control",
+    sub: "Qué hacer después del primer control",
     detailTitle: "Indicaciones a partir del primer control",
     videoIntro: "El Dr. Lloveras te explica los cuidados y pasos a seguir a partir de tu primer control post operatorio.",
-    pdfName: "Indicaciones-primer-control.pdf", pdfMeta: "PDF · 2 páginas",
-    summaryTitle: "Recordá", summaryKind: "check",
+    pdfName: "Indicaciones-primer-control.pdf",
+    pdfMeta: "PDF · 2 páginas",
+    summaryTitle: "Recordá",
+    summaryKind: "check",
     summary: [
       { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
       { h: "Vení a los controles programados", t: "Los controles son clave para asegurarnos de que todo evoluciona bien." },
@@ -116,12 +132,16 @@ export const sections: Section[
     ],
   },
   {
-    id: "post", icon: "eye",
-    title: "Indicaciones post quirúrgicas", sub: "Cuidados después de la cirugía",
+    id: "post",
+    icon: "eye",
+    title: "Indicaciones post quirúrgicas",
+    sub: "Cuidados después de la cirugía",
     detailTitle: "Después de tu cirugía",
     videoIntro: "Estos cuidados te ayudan a recuperarte rápido y bien. Vemos juntos qué hacer en casa.",
-    pdfName: "Indicaciones-postquirurgicas.pdf", pdfMeta: "PDF · 2 páginas",
-    summaryTitle: "Cuidados en casa", summaryKind: "check",
+    pdfName: "Indicaciones-postquirurgicas.pdf",
+    pdfMeta: "PDF · 2 páginas",
+    summaryTitle: "Cuidados en casa",
+    summaryKind: "check",
     summary: [
       { h: "Usá las gotas indicadas", t: "Cumplí con los horarios de cada gota para una buena cicatrización." },
       { h: "No te frotes el ojo", t: "Evitá tocarlo o frotarlo. Usá el protector ocular para dormir los primeros días." },
@@ -133,5 +153,5 @@ export const sections: Section[
       { q: "¿Puedo mirar el celular o la tele?", a: "Sí, con moderación y descansos. No daña tu ojo operado." },
       { q: "¿Y si siento molestias?", a: "Una molestia leve es normal. Si tenés dolor fuerte, mucho enrojecimiento o pérdida de visión, escribinos enseguida." },
     ],
-  }
+  },
 ];
