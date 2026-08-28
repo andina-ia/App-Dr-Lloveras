@@ -60,9 +60,10 @@ export const sections: Section[] = [
       { h: "Recuperación y controles", t: "Seguís las indicaciones post quirúrgicas y venís a los controles programados." },
     ],
     faq: [
-      { q: "¿Cuánto dura la cirugía?", a: "La cirugía en sí suele durar entre 15 y 30 minutos. El día completo en el centro es de unas pocas horas." },
+      { q: "¿Cómo es el proceso antes de la cirugía?", a: "Primero presentás tu carpeta en Mesa de Entrada, donde te asignan turno para los estudios del ojo. Luego retirás las gotas con la receta, hacés el electrocardiograma y el análisis de sangre, y después volvés al consultorio para elegir el lente." },
+      { q: "¿Cómo se asigna el turno de cirugía?", a: "Con todos los estudios listos, acercate al primer piso entre las 8 y las 14 horas para coordinar el día y horario de la operación." },
+      { q: "¿Se opera un ojo por vez?", a: "Sí. Se opera un ojo por vez, de forma ambulatoria y con anestesia local en gotas y sedación." },
       { q: "¿Tengo que quedarme internado/a?", a: "No. Es una cirugía ambulatoria: el mismo día volvés a tu casa." },
-      { q: "¿Voy a sentir dolor?", a: "No. Se realiza con anestesia local en gotas y sedación. Podés sentir presión leve, pero no dolor." },
     ],
   },
   {
@@ -108,8 +109,10 @@ export const sections: Section[] = [
       { h: "Gotas después de la cirugía", t: "Continúe con el Quidex cada hora hasta el primer control. No es necesario que se despierte de noche para colocarse las gotas." },
     ],
     faq: [
-      { q: "¿Puedo tomar mis remedios habituales?", a: "En general sí, pero algunos se suspenden. Seguí siempre la indicación que te dimos en la consulta." },
-      { q: "¿Puedo desayunar ese día?", a: "Depende del horario de tu cirugía. Respetá el ayuno indicado en tu hoja de indicaciones." },
+      { q: "¿Puedo tomar mis remedios habituales?", a: "Sí, tomá la medicación que habitualmente usás con normalidad, salvo que tu médico te indique lo contrario." },
+      { q: "¿Tengo que estar en ayunas?", a: "Sí, presentate en ayunas salvo indicación contraria de tu médico." },
+      { q: "¿Puedo venir acompañado/a?", a: "Sí, podés venir acompañado por una sola persona." },
+      { q: "¿Qué tengo que traer el día de la cirugía?", a: "Tus análisis de laboratorio recientes y el electrocardiograma con evaluación de riesgo quirúrgico. Si te hicieron estudios en la clínica (IOL Master, OCT o recuento endotelial), traélos también." },
     ],
   },
   {
@@ -158,9 +161,10 @@ export const sections: Section[] = [
       { h: "Vení a los controles", t: "Los controles nos permiten asegurarnos de que todo evoluciona bien." },
     ],
     faq: [
-      { q: "¿Cuándo voy a ver bien?", a: "La visión mejora en los primeros días y se va estabilizando en las semanas siguientes." },
-      { q: "¿Puedo mirar el celular o la tele?", a: "Sí, con moderación y descansos. No daña tu ojo operado." },
-      { q: "¿Y si siento molestias?", a: "Una molestia leve es normal. Si tenés dolor fuerte, mucho enrojecimiento o pérdida de visión, escribinos enseguida." },
+      { q: "¿Cuándo voy a ver bien?", a: "La visión mejora en los primeros días y se estabiliza en las semanas siguientes. Cada caso es diferente." },
+      { q: "¿Tengo que colocarme las gotas de noche?", a: "No es necesario que te despertés durante la noche. Seguí los horarios indicados durante el día." },
+      { q: "¿Puedo mirar el celular o la tele?", a: "Sí, con moderación y descansos. No daña el ojo operado." },
+      { q: "¿Y si siento molestias?", a: "Una molestia leve es normal. Si tenés dolor fuerte, mucho enrojecimiento o pérdida de visión, comunicarte al 4211-827 o por WhatsApp al 264-506-8102." },
     ],
   },
 ];
