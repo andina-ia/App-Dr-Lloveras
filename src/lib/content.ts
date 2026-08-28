@@ -100,6 +100,7 @@ export const sections: Section[] = [
     summaryTitle: "Recordá",
     summaryKind: "check",
     videoUrl: "https://4paycditbkbuyusv.private.blob.vercel-storage.com/pre_cirugia_compressed.mp4",
+    pdfUrl: "https://4paycditbkbuyusv.private.blob.vercel-storage.com/lloveras/Indicaciones_Antes_Cirugia.pdf",
     summary: [
       { h: "Colocá las gotas indicadas", t: "Comenzá con las gotas en los días y horarios que te indicamos." },
       { h: "Vení acompañado/a", t: "No vas a poder manejar. Coordiná con alguien que te lleve y te traiga." },
