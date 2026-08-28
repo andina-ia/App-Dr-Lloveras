@@ -304,7 +304,7 @@ function VideoPlayer({ section }: { section: Section }) {
         <div className="video real" onClick={toggle}>
           <video ref={videoRef} className="video-el" playsInline preload="auto"
             onEnded={() => setPlaying(false)} onPause={() => setPlaying(false)} onPlay={() => setPlaying(true)}>
-            <source src={section.videoUrl} type="video/mp4" />
+            <source src={`/api/media?url=${encodeURIComponent(section.videoUrl)}`} type="video/mp4" />
           </video>
           <button className="video-expand" aria-label="Pantalla completa" onClick={expand}><Icons.expand width={20} height={20} /></button>
           {!playing && <div className="video-center"><button className="play-btn" aria-label="Reproducir"><Icons.play width={32} height={32} style={{ marginLeft: 4 }} /></button></div>}
@@ -337,8 +337,9 @@ function VideoPlayer({ section }: { section: Section }) {
 function PdfCard({ section }: { section: Section }) {
   const [done, setDone] = useState(false);
   if (section.pdfUrl) {
+    const proxyUrl = `/api/media?url=${encodeURIComponent(section.pdfUrl)}`;
     return (
-      <a className={"pdf-card" + (done ? " done" : "")} href={section.pdfUrl} target="_blank" rel="noreferrer" onClick={() => setDone(true)} style={{ textDecoration: "none" }}>
+      <a className={"pdf-card" + (done ? " done" : "")} href={proxyUrl} target="_blank" rel="noreferrer" onClick={() => setDone(true)} style={{ textDecoration: "none" }}>
         <span className="pdf-ico"><Icons.pdf width={26} height={26} /></span>
         <span className="pdf-text"><span className="pdf-name">{section.pdfName}</span><span className="pdf-meta">{done ? "Descargado · listo para leer" : section.pdfMeta}</span></span>
         <span className="pdf-action">{done ? <Icons.check width={24} height={24} /> : <Icons.download width={24} height={24} />}</span>
