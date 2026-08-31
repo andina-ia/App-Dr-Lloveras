@@ -18,19 +18,19 @@ export function Cover({ onEnter }: { onEnter: () => void }) {
           <span className="cover-clinic">Oftalmología</span>
         </div>
         <div className="cover-mid">
-          <div className="cover-eyebrow">Guía para tu cirugía</div>
+          <div className="cover-eyebrow">Guía para su cirugía</div>
           <h1 className="cover-name">{brand.name}</h1>
           <p className="cover-spec">{brand.specialty}</p>
           <p className="cover-welcome">
             Bienvenido/a. Acá vas a encontrar los videos y las indicaciones
-            que necesitás para tu cirugía.
+            que necesita para su cirugía.
           </p>
         </div>
         <div className="cover-bottom">
           <button className="cover-enter" onClick={onEnter}>
             Ingresar <Icons.chevron width={24} height={24} />
           </button>
-          <div className="cover-foot">Tocá para comenzar</div>
+          <div className="cover-foot">Toque para comenzar</div>
           <a href="/admin" style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", textDecoration: "none", marginTop: 8, display: "block" }}>
             Admin
           </a>
@@ -40,7 +40,7 @@ export function Cover({ onEnter }: { onEnter: () => void }) {
       {/* ── RIGHT PANEL (desktop only) ── */}
       <div className="cover-right-panel">
         <div className="cover-right-inner">
-          <div className="cover-right-label">¿Qué encontrás en la app?</div>
+          <div className="cover-right-label">¿Qué encontrará en la app?</div>
           <div className="cover-section-list">
             {sections.map((s, i) => (
               <div key={s.id} className="cover-section-item" onClick={onEnter}>

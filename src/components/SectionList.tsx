@@ -49,9 +49,9 @@ export function SectionList({
         <h1 className="home-greet" style={{ fontSize: "calc(24px*var(--scale))" }}>Tu recorrido</h1>
         <p className="home-intro">
           {completedCount === 0
-            ? "Tocá cada paso para ver el video y las indicaciones."
+            ? "Seleccione cada paso para ver el video y las indicaciones."
             : completedCount === sections.length
-            ? "¡Completaste todos los pasos! 🎉"
+            ? "¡Completó todos los pasos! 🎉"
             : `${completedCount} de ${sections.length} pasos visitados`}
         </p>
       </header>

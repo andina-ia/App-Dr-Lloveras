@@ -432,8 +432,7 @@ export function Detail({ section, sections, onBack, onSelect }: { section: Secti
         <h1 className="detail-title">{section.detailTitle}</h1>
         {section.id === "lente" ? <LensSelector section={section} /> : <VideoPlayer section={section} />}
         {section.id !== "lente" && <><h2 className="block-h">{section.summaryTitle}</h2><Summary section={section} /></>}
-        <h2 className="block-h">Llevátelo por escrito</h2>
-        <PdfCard section={section} />
+        {section.id !== "lente" && <><h2 className="block-h">Llevátelo por escrito</h2><PdfCard section={section} /></>}
         <h2 className="block-h">Preguntas frecuentes</h2>
         <Faq items={section.faq} />
         <h2 className="block-h">¿Tenés dudas?</h2>

@@ -36,7 +36,7 @@ export function Home({
           </div>
           <div className="surgery-card-txt">
             <div className="surgery-card-title">Acompañamiento cirugía de cataratas</div>
-            <div className="surgery-card-sub">Videos, indicaciones y guías para cada etapa de tu cirugía</div>
+            <div className="surgery-card-sub">Videos, indicaciones y guías para cada etapa de su cirugía</div>
           </div>
           <div className="surgery-card-arrow">
             <Icons.chevron width={24} height={24} />
